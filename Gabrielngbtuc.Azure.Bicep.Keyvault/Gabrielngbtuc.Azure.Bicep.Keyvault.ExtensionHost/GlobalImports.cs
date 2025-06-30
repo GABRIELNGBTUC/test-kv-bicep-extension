@@ -1,0 +1,1 @@
+﻿global using AzureCertificateNamespace = Azure.Security.KeyVault.Certificates;

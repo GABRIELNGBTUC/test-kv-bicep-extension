@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gabrielngbtuc.Azure.Bicep.Keyvault.CLI", "Gabrielngbtuc.Azure.Bicep.Keyvault\Gabrielngbtuc.Azure.Bicep.Keyvault.CLI\Gabrielngbtuc.Azure.Bicep.Keyvault.CLI.csproj", "{A4DE9E28-67AC-485D-98E4-2847305AA94A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gabrielngbtuc.Azure.Bicep.Keyvault.ExtensionHost", "Gabrielngbtuc.Azure.Bicep.Keyvault\Gabrielngbtuc.Azure.Bicep.Keyvault.ExtensionHost\Gabrielngbtuc.Azure.Bicep.Keyvault.ExtensionHost.csproj", "{BB761B5E-4D81-428C-A131-20B98F167BA3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gabrielngbtuc.Azure.Bicep.Keyvault.Generator", "Gabrielngbtuc.Azure.Bicep.Keyvault\Gabrielngbtuc.Azure.Bicep.Keyvault.Generator\Gabrielngbtuc.Azure.Bicep.Keyvault.Generator.csproj", "{A3B1FBD8-3FBC-48A7-8811-8274622183B9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gabrielngbtuc.Azure.Bicep.Keyvault.Shared", "Gabrielngbtuc.Azure.Bicep.Keyvault\Gabrielngbtuc.Azure.Bicep.Keyvault.Shared\Gabrielngbtuc.Azure.Bicep.Keyvault.Shared.csproj", "{519585B2-ADA7-4349-A80B-DA4A3B7688A4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gabrielngbtuc.Azure.Bicep.Keyvault.UnitTests", "Gabrielngbtuc.Azure.Bicep.Keyvault.UnitTests\Gabrielngbtuc.Azure.Bicep.Keyvault.UnitTests.csproj", "{BE20E270-2AA3-49FA-92DE-EE834FB560D3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A4DE9E28-67AC-485D-98E4-2847305AA94A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4DE9E28-67AC-485D-98E4-2847305AA94A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4DE9E28-67AC-485D-98E4-2847305AA94A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4DE9E28-67AC-485D-98E4-2847305AA94A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB761B5E-4D81-428C-A131-20B98F167BA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB761B5E-4D81-428C-A131-20B98F167BA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB761B5E-4D81-428C-A131-20B98F167BA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB761B5E-4D81-428C-A131-20B98F167BA3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3B1FBD8-3FBC-48A7-8811-8274622183B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3B1FBD8-3FBC-48A7-8811-8274622183B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3B1FBD8-3FBC-48A7-8811-8274622183B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3B1FBD8-3FBC-48A7-8811-8274622183B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{519585B2-ADA7-4349-A80B-DA4A3B7688A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{519585B2-ADA7-4349-A80B-DA4A3B7688A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{519585B2-ADA7-4349-A80B-DA4A3B7688A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{519585B2-ADA7-4349-A80B-DA4A3B7688A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE20E270-2AA3-49FA-92DE-EE834FB560D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE20E270-2AA3-49FA-92DE-EE834FB560D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE20E270-2AA3-49FA-92DE-EE834FB560D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE20E270-2AA3-49FA-92DE-EE834FB560D3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

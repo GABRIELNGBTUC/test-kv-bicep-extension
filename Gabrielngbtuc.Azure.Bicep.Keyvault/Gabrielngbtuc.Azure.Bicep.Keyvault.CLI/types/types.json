@@ -1,0 +1,2178 @@
+[
+  {
+    "$type": "StringType",
+    "sensitive": false,
+    "minLength": null,
+    "maxLength": null,
+    "pattern": "^https:\\/\\/[a-zA-Z0-9\\-\\.]\u002B(\\/\\S*)?$"
+  },
+  {
+    "$type": "ObjectType",
+    "name": "configuration",
+    "properties": {
+      "keyVaultUrl": {
+        "type": {
+          "$ref": "#/0"
+        },
+        "flags": 17,
+        "description": "The full url of the keyvault"
+      }
+    },
+    "additionalProperties": null,
+    "sensitive": null
+  },
+  {
+    "$type": "StringType",
+    "sensitive": null,
+    "minLength": null,
+    "maxLength": null,
+    "pattern": null
+  },
+  {
+    "$type": "StringType",
+    "sensitive": null,
+    "minLength": null,
+    "maxLength": null,
+    "pattern": null
+  },
+  {
+    "$type": "ObjectType",
+    "name": "Certificate",
+    "properties": {
+      "data": {
+        "type": {
+          "$ref": "#/3"
+        },
+        "flags": 0,
+        "description": "The certificate data"
+      }
+    },
+    "additionalProperties": null,
+    "sensitive": null
+  },
+  {
+    "$type": "FunctionType",
+    "parameters": [
+      {
+        "name": "name",
+        "type": {
+          "$ref": "#/2"
+        },
+        "description": "The name of the certificate"
+      }
+    ],
+    "output": {
+      "$ref": "#/4"
+    }
+  },
+  {
+    "$type": "StringType",
+    "sensitive": false,
+    "minLength": null,
+    "maxLength": null,
+    "pattern": null
+  },
+  {
+    "$type": "StringType",
+    "sensitive": false,
+    "minLength": null,
+    "maxLength": null,
+    "pattern": null
+  },
+  {
+    "$type": "StringType",
+    "sensitive": false,
+    "minLength": null,
+    "maxLength": null,
+    "pattern": null
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "Pkcs12"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "Pem"
+  },
+  {
+    "$type": "UnionType",
+    "elements": [
+      {
+        "$ref": "#/9"
+      },
+      {
+        "$ref": "#/10"
+      }
+    ]
+  },
+  {
+    "$type": "BooleanType"
+  },
+  {
+    "$type": "NullType"
+  },
+  {
+    "$type": "UnionType",
+    "elements": [
+      {
+        "$ref": "#/12"
+      },
+      {
+        "$ref": "#/13"
+      }
+    ]
+  },
+  {
+    "$type": "StringType",
+    "sensitive": null,
+    "minLength": null,
+    "maxLength": null,
+    "pattern": null
+  },
+  {
+    "$type": "ArrayType",
+    "itemType": {
+      "$ref": "#/15"
+    },
+    "minLength": null,
+    "maxLength": null
+  },
+  {
+    "$type": "ObjectType",
+    "name": "String[]",
+    "properties": {},
+    "additionalProperties": null,
+    "sensitive": null
+  },
+  {
+    "$type": "NullType"
+  },
+  {
+    "$type": "UnionType",
+    "elements": [
+      {
+        "$ref": "#/16"
+      },
+      {
+        "$ref": "#/18"
+      }
+    ]
+  },
+  {
+    "$type": "NullType"
+  },
+  {
+    "$type": "UnionType",
+    "elements": [
+      {
+        "$ref": "#/16"
+      },
+      {
+        "$ref": "#/20"
+      }
+    ]
+  },
+  {
+    "$type": "NullType"
+  },
+  {
+    "$type": "UnionType",
+    "elements": [
+      {
+        "$ref": "#/16"
+      },
+      {
+        "$ref": "#/22"
+      }
+    ]
+  },
+  {
+    "$type": "ObjectType",
+    "name": "SubjectAlternativeNamesData",
+    "properties": {
+      "dnsNames": {
+        "type": {
+          "$ref": "#/19"
+        },
+        "flags": 0,
+        "description": "The list of domains"
+      },
+      "emails": {
+        "type": {
+          "$ref": "#/21"
+        },
+        "flags": 0,
+        "description": "The list of emails"
+      },
+      "userPrincipalNames": {
+        "type": {
+          "$ref": "#/23"
+        },
+        "flags": 0,
+        "description": "The list of upns"
+      }
+    },
+    "additionalProperties": null,
+    "sensitive": null
+  },
+  {
+    "$type": "NullType"
+  },
+  {
+    "$type": "UnionType",
+    "elements": [
+      {
+        "$ref": "#/12"
+      },
+      {
+        "$ref": "#/25"
+      }
+    ]
+  },
+  {
+    "$type": "StringType",
+    "sensitive": false,
+    "minLength": null,
+    "maxLength": null,
+    "pattern": null
+  },
+  {
+    "$type": "NullType"
+  },
+  {
+    "$type": "UnionType",
+    "elements": [
+      {
+        "$ref": "#/27"
+      },
+      {
+        "$ref": "#/28"
+      }
+    ]
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "Ec"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "EcHsm"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "Rsa"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "RsaHsm"
+  },
+  {
+    "$type": "UnionType",
+    "elements": [
+      {
+        "$ref": "#/30"
+      },
+      {
+        "$ref": "#/31"
+      },
+      {
+        "$ref": "#/32"
+      },
+      {
+        "$ref": "#/33"
+      }
+    ]
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "2048"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "4096"
+  },
+  {
+    "$type": "UnionType",
+    "elements": [
+      {
+        "$ref": "#/35"
+      },
+      {
+        "$ref": "#/36"
+      }
+    ]
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "CrlSign"
+  },
+  {
+    "$type": "ArrayType",
+    "itemType": {
+      "$ref": "#/38"
+    },
+    "minLength": null,
+    "maxLength": null
+  },
+  {
+    "$type": "ObjectType",
+    "name": "KeyUsageType[]",
+    "properties": {},
+    "additionalProperties": null,
+    "sensitive": null
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "EmailContacts"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "AutoRenew"
+  },
+  {
+    "$type": "UnionType",
+    "elements": [
+      {
+        "$ref": "#/41"
+      },
+      {
+        "$ref": "#/42"
+      }
+    ]
+  },
+  {
+    "$type": "IntegerType",
+    "minValue": null,
+    "maxValue": null
+  },
+  {
+    "$type": "NullType"
+  },
+  {
+    "$type": "UnionType",
+    "elements": [
+      {
+        "$ref": "#/44"
+      },
+      {
+        "$ref": "#/45"
+      }
+    ]
+  },
+  {
+    "$type": "NullType"
+  },
+  {
+    "$type": "UnionType",
+    "elements": [
+      {
+        "$ref": "#/44"
+      },
+      {
+        "$ref": "#/47"
+      }
+    ]
+  },
+  {
+    "$type": "ObjectType",
+    "name": "LifetimeAction",
+    "properties": {
+      "actionType": {
+        "type": {
+          "$ref": "#/43"
+        },
+        "flags": 0,
+        "description": "The action type of the lifetime action"
+      },
+      "lifetimePercentage": {
+        "type": {
+          "$ref": "#/46"
+        },
+        "flags": 0,
+        "description": "The lifetime percentage at which to trigger the action. Should be between 1 and 99"
+      },
+      "daysBeforeExpiry": {
+        "type": {
+          "$ref": "#/48"
+        },
+        "flags": 0,
+        "description": "The number of days before the expiration after which the action should execute"
+      }
+    },
+    "additionalProperties": null,
+    "sensitive": null
+  },
+  {
+    "$type": "NullType"
+  },
+  {
+    "$type": "UnionType",
+    "elements": [
+      {
+        "$ref": "#/16"
+      },
+      {
+        "$ref": "#/50"
+      }
+    ]
+  },
+  {
+    "$type": "StringType",
+    "sensitive": false,
+    "minLength": null,
+    "maxLength": null,
+    "pattern": null
+  },
+  {
+    "$type": "NullType"
+  },
+  {
+    "$type": "UnionType",
+    "elements": [
+      {
+        "$ref": "#/52"
+      },
+      {
+        "$ref": "#/53"
+      }
+    ]
+  },
+  {
+    "$type": "NullType"
+  },
+  {
+    "$type": "UnionType",
+    "elements": [
+      {
+        "$ref": "#/44"
+      },
+      {
+        "$ref": "#/55"
+      }
+    ]
+  },
+  {
+    "$type": "ObjectType",
+    "name": "CertificatePolicy",
+    "properties": {
+      "contentType": {
+        "type": {
+          "$ref": "#/11"
+        },
+        "flags": 1,
+        "description": "The content type of the certificate. Set to Pkcs12 when Cer contains your raw PKCS#12/PFX bytes, or to Pem when Cer contains your ASCII PEM-encoded bytes. If not specified, Pkcs12 is assumed."
+      },
+      "enabled": {
+        "type": {
+          "$ref": "#/14"
+        },
+        "flags": 0,
+        "description": "If the certificate is enabled"
+      },
+      "subjectAlternativeNames": {
+        "type": {
+          "$ref": "#/24"
+        },
+        "flags": 2,
+        "description": "The subject alternative names of the certificate"
+      },
+      "certificateTransparency": {
+        "type": {
+          "$ref": "#/26"
+        },
+        "flags": 0,
+        "description": "Gets or sets a value indicating whether a certificate should be published to the certificate transparency list when created."
+      },
+      "exportable": {
+        "type": {
+          "$ref": "#/12"
+        },
+        "flags": 1,
+        "description": "Whether the certificate is exportable or not"
+      },
+      "certificateType": {
+        "type": {
+          "$ref": "#/29"
+        },
+        "flags": 0,
+        "description": "The type of the certificate"
+      },
+      "keyType": {
+        "type": {
+          "$ref": "#/34"
+        },
+        "flags": 1,
+        "description": "Gets or sets the type of backing key to be generated when issuing new certificates."
+      },
+      "keySize": {
+        "type": {
+          "$ref": "#/37"
+        },
+        "flags": 1,
+        "description": "The size of the RSA key. Must either be 2048 or 4096"
+      },
+      "keyUsage": {
+        "type": {
+          "$ref": "#/39"
+        },
+        "flags": 2,
+        "description": "The allowed usages of the key of the certificate"
+      },
+      "lifetimeActions": {
+        "type": {
+          "$ref": "#/49"
+        },
+        "flags": 0,
+        "description": "The lifetime actions"
+      },
+      "reuseKey": {
+        "type": {
+          "$ref": "#/12"
+        },
+        "flags": 1,
+        "description": "Whether the key should be reused when rotating certificates"
+      },
+      "enhancedKeyUsages": {
+        "type": {
+          "$ref": "#/51"
+        },
+        "flags": 2,
+        "description": "The allowed enhanced key usages of the certificate"
+      },
+      "keyCurveName": {
+        "type": {
+          "$ref": "#/54"
+        },
+        "flags": 0,
+        "description": "Gets or sets the curve which back an Elliptic Curve (EC) key."
+      },
+      "validityInMonths": {
+        "type": {
+          "$ref": "#/56"
+        },
+        "flags": 0,
+        "description": "Validity of the certificate in months"
+      }
+    },
+    "additionalProperties": null,
+    "sensitive": null
+  },
+  {
+    "$type": "NullType"
+  },
+  {
+    "$type": "UnionType",
+    "elements": [
+      {
+        "$ref": "#/12"
+      },
+      {
+        "$ref": "#/58"
+      }
+    ]
+  },
+  {
+    "$type": "StringType",
+    "sensitive": null,
+    "minLength": null,
+    "maxLength": null,
+    "pattern": null
+  },
+  {
+    "$type": "ObjectType",
+    "name": "System.Collections.Generic.Dictionary\u00602[System.String,System.String]",
+    "properties": {},
+    "additionalProperties": {
+      "$ref": "#/60"
+    },
+    "sensitive": null
+  },
+  {
+    "$type": "NullType"
+  },
+  {
+    "$type": "UnionType",
+    "elements": [
+      {
+        "$ref": "#/61"
+      },
+      {
+        "$ref": "#/62"
+      }
+    ]
+  },
+  {
+    "$type": "NullType"
+  },
+  {
+    "$type": "UnionType",
+    "elements": [
+      {
+        "$ref": "#/12"
+      },
+      {
+        "$ref": "#/64"
+      }
+    ]
+  },
+  {
+    "$type": "StringType",
+    "sensitive": false,
+    "minLength": null,
+    "maxLength": null,
+    "pattern": null
+  },
+  {
+    "$type": "StringType",
+    "sensitive": false,
+    "minLength": null,
+    "maxLength": null,
+    "pattern": null
+  },
+  {
+    "$type": "StringType",
+    "sensitive": false,
+    "minLength": null,
+    "maxLength": null,
+    "pattern": null
+  },
+  {
+    "$type": "StringType",
+    "sensitive": false,
+    "minLength": null,
+    "maxLength": null,
+    "pattern": null
+  },
+  {
+    "$type": "StringType",
+    "sensitive": false,
+    "minLength": null,
+    "maxLength": null,
+    "pattern": null
+  },
+  {
+    "$type": "StringType",
+    "sensitive": false,
+    "minLength": null,
+    "maxLength": null,
+    "pattern": null
+  },
+  {
+    "$type": "StringType",
+    "sensitive": false,
+    "minLength": null,
+    "maxLength": null,
+    "pattern": null
+  },
+  {
+    "$type": "StringType",
+    "sensitive": false,
+    "minLength": null,
+    "maxLength": null,
+    "pattern": null
+  },
+  {
+    "$type": "StringType",
+    "sensitive": false,
+    "minLength": null,
+    "maxLength": null,
+    "pattern": null
+  },
+  {
+    "$type": "NullType"
+  },
+  {
+    "$type": "UnionType",
+    "elements": [
+      {
+        "$ref": "#/61"
+      },
+      {
+        "$ref": "#/75"
+      }
+    ]
+  },
+  {
+    "$type": "NullType"
+  },
+  {
+    "$type": "UnionType",
+    "elements": [
+      {
+        "$ref": "#/12"
+      },
+      {
+        "$ref": "#/77"
+      }
+    ]
+  },
+  {
+    "$type": "StringType",
+    "sensitive": false,
+    "minLength": null,
+    "maxLength": null,
+    "pattern": null
+  },
+  {
+    "$type": "NullType"
+  },
+  {
+    "$type": "UnionType",
+    "elements": [
+      {
+        "$ref": "#/79"
+      },
+      {
+        "$ref": "#/80"
+      }
+    ]
+  },
+  {
+    "$type": "StringType",
+    "sensitive": false,
+    "minLength": null,
+    "maxLength": null,
+    "pattern": null
+  },
+  {
+    "$type": "NullType"
+  },
+  {
+    "$type": "UnionType",
+    "elements": [
+      {
+        "$ref": "#/82"
+      },
+      {
+        "$ref": "#/83"
+      }
+    ]
+  },
+  {
+    "$type": "StringType",
+    "sensitive": false,
+    "minLength": null,
+    "maxLength": null,
+    "pattern": null
+  },
+  {
+    "$type": "NullType"
+  },
+  {
+    "$type": "UnionType",
+    "elements": [
+      {
+        "$ref": "#/85"
+      },
+      {
+        "$ref": "#/86"
+      }
+    ]
+  },
+  {
+    "$type": "StringType",
+    "sensitive": false,
+    "minLength": null,
+    "maxLength": null,
+    "pattern": null
+  },
+  {
+    "$type": "NullType"
+  },
+  {
+    "$type": "UnionType",
+    "elements": [
+      {
+        "$ref": "#/88"
+      },
+      {
+        "$ref": "#/89"
+      }
+    ]
+  },
+  {
+    "$type": "NullType"
+  },
+  {
+    "$type": "UnionType",
+    "elements": [
+      {
+        "$ref": "#/44"
+      },
+      {
+        "$ref": "#/91"
+      }
+    ]
+  },
+  {
+    "$type": "StringType",
+    "sensitive": false,
+    "minLength": null,
+    "maxLength": null,
+    "pattern": null
+  },
+  {
+    "$type": "NullType"
+  },
+  {
+    "$type": "UnionType",
+    "elements": [
+      {
+        "$ref": "#/93"
+      },
+      {
+        "$ref": "#/94"
+      }
+    ]
+  },
+  {
+    "$type": "ObjectType",
+    "name": "CertificateData",
+    "properties": {
+      "id": {
+        "type": {
+          "$ref": "#/69"
+        },
+        "flags": 2,
+        "description": "Id of the certificate"
+      },
+      "name": {
+        "type": {
+          "$ref": "#/70"
+        },
+        "flags": 2,
+        "description": "Name of the certificate"
+      },
+      "vaultUri": {
+        "type": {
+          "$ref": "#/71"
+        },
+        "flags": 2,
+        "description": "Url of the keyvault containing the certificate"
+      },
+      "version": {
+        "type": {
+          "$ref": "#/72"
+        },
+        "flags": 2,
+        "description": "Version of the certificate"
+      },
+      "x509Thumbprint": {
+        "type": {
+          "$ref": "#/73"
+        },
+        "flags": 2,
+        "description": "Base64 representation of the thumbprint"
+      },
+      "x509ThumbprintString": {
+        "type": {
+          "$ref": "#/74"
+        },
+        "flags": 2,
+        "description": "Decoded base64 representation of the thumbprint"
+      },
+      "tags": {
+        "type": {
+          "$ref": "#/76"
+        },
+        "flags": 2,
+        "description": "Tags of the certificate"
+      },
+      "enabled": {
+        "type": {
+          "$ref": "#/78"
+        },
+        "flags": 2,
+        "description": "Whether the certificate is enabled"
+      },
+      "notBefore": {
+        "type": {
+          "$ref": "#/81"
+        },
+        "flags": 2,
+        "description": "Activation date of the certificate"
+      },
+      "expiresOn": {
+        "type": {
+          "$ref": "#/84"
+        },
+        "flags": 2,
+        "description": "Expiration date of the certificate"
+      },
+      "createdOn": {
+        "type": {
+          "$ref": "#/87"
+        },
+        "flags": 2,
+        "description": "Creation date of the certificate"
+      },
+      "updatedOn": {
+        "type": {
+          "$ref": "#/90"
+        },
+        "flags": 2,
+        "description": "Last update date of the certificate"
+      },
+      "recoverableDays": {
+        "type": {
+          "$ref": "#/92"
+        },
+        "flags": 2,
+        "description": "Number of days before the certificate is purged on a soft-delete"
+      },
+      "recoveryLevel": {
+        "type": {
+          "$ref": "#/95"
+        },
+        "flags": 2,
+        "description": "Recovery level of the certificate"
+      }
+    },
+    "additionalProperties": null,
+    "sensitive": null
+  },
+  {
+    "$type": "NullType"
+  },
+  {
+    "$type": "UnionType",
+    "elements": [
+      {
+        "$ref": "#/96"
+      },
+      {
+        "$ref": "#/97"
+      }
+    ]
+  },
+  {
+    "$type": "StringType",
+    "sensitive": false,
+    "minLength": null,
+    "maxLength": null,
+    "pattern": null
+  },
+  {
+    "$type": "NullType"
+  },
+  {
+    "$type": "UnionType",
+    "elements": [
+      {
+        "$ref": "#/99"
+      },
+      {
+        "$ref": "#/100"
+      }
+    ]
+  },
+  {
+    "$type": "ObjectType",
+    "name": "Certificate",
+    "properties": {
+      "name": {
+        "type": {
+          "$ref": "#/6"
+        },
+        "flags": 17,
+        "description": "The name of the certificate"
+      },
+      "issuerName": {
+        "type": {
+          "$ref": "#/7"
+        },
+        "flags": 1,
+        "description": "The version of the certificate"
+      },
+      "subject": {
+        "type": {
+          "$ref": "#/8"
+        },
+        "flags": 1,
+        "description": "Subject of the certificate"
+      },
+      "policy": {
+        "type": {
+          "$ref": "#/57"
+        },
+        "flags": 1,
+        "description": "The policy of the certificate"
+      },
+      "enabled": {
+        "type": {
+          "$ref": "#/59"
+        },
+        "flags": 0,
+        "description": "TWhether the certificate is enabled on creation"
+      },
+      "tags": {
+        "type": {
+          "$ref": "#/63"
+        },
+        "flags": 0,
+        "description": "The tags of the certificate"
+      },
+      "preserveCertificateOrder": {
+        "type": {
+          "$ref": "#/65"
+        },
+        "flags": 0,
+        "description": "Whether the certificate order is preserved. if false, the leaf certificate will be placed at index 0"
+      },
+      "id": {
+        "type": {
+          "$ref": "#/66"
+        },
+        "flags": 2,
+        "description": "The certificate id"
+      },
+      "keyId": {
+        "type": {
+          "$ref": "#/67"
+        },
+        "flags": 2,
+        "description": "Id of the backing key"
+      },
+      "secretId": {
+        "type": {
+          "$ref": "#/68"
+        },
+        "flags": 2,
+        "description": "Id of the backing secret"
+      },
+      "data": {
+        "type": {
+          "$ref": "#/98"
+        },
+        "flags": 2,
+        "description": "The certificate data."
+      },
+      "cer": {
+        "type": {
+          "$ref": "#/101"
+        },
+        "flags": 2,
+        "description": "The public key content in base64 format"
+      }
+    },
+    "additionalProperties": null,
+    "sensitive": null
+  },
+  {
+    "$type": "ResourceType",
+    "name": "Certificate",
+    "scopeType": 0,
+    "readOnlyScopes": null,
+    "body": {
+      "$ref": "#/102"
+    },
+    "flags": 0,
+    "functions": {
+      "listKeys": {
+        "type": {
+          "$ref": "#/5"
+        },
+        "description": "desc"
+      }
+    }
+  },
+  {
+    "$type": "StringType",
+    "sensitive": null,
+    "minLength": null,
+    "maxLength": null,
+    "pattern": null
+  },
+  {
+    "$type": "StringType",
+    "sensitive": null,
+    "minLength": null,
+    "maxLength": null,
+    "pattern": null
+  },
+  {
+    "$type": "ObjectType",
+    "name": "Certificate",
+    "properties": {
+      "data": {
+        "type": {
+          "$ref": "#/105"
+        },
+        "flags": 0,
+        "description": "The certificate data"
+      }
+    },
+    "additionalProperties": null,
+    "sensitive": null
+  },
+  {
+    "$type": "FunctionType",
+    "parameters": [
+      {
+        "name": "name",
+        "type": {
+          "$ref": "#/104"
+        },
+        "description": "The name of the certificate"
+      }
+    ],
+    "output": {
+      "$ref": "#/106"
+    }
+  },
+  {
+    "$type": "StringType",
+    "sensitive": false,
+    "minLength": null,
+    "maxLength": null,
+    "pattern": "^.\u002B@.\u002B\\..\u002B$"
+  },
+  {
+    "$type": "StringType",
+    "sensitive": false,
+    "minLength": null,
+    "maxLength": null,
+    "pattern": null
+  },
+  {
+    "$type": "NullType"
+  },
+  {
+    "$type": "UnionType",
+    "elements": [
+      {
+        "$ref": "#/109"
+      },
+      {
+        "$ref": "#/110"
+      }
+    ]
+  },
+  {
+    "$type": "StringType",
+    "sensitive": false,
+    "minLength": null,
+    "maxLength": null,
+    "pattern": null
+  },
+  {
+    "$type": "NullType"
+  },
+  {
+    "$type": "UnionType",
+    "elements": [
+      {
+        "$ref": "#/112"
+      },
+      {
+        "$ref": "#/113"
+      }
+    ]
+  },
+  {
+    "$type": "ObjectType",
+    "name": "Contact",
+    "properties": {
+      "email": {
+        "type": {
+          "$ref": "#/108"
+        },
+        "flags": 1,
+        "description": "The email of the contact"
+      },
+      "name": {
+        "type": {
+          "$ref": "#/111"
+        },
+        "flags": 1,
+        "description": "The name of the contact"
+      },
+      "phone": {
+        "type": {
+          "$ref": "#/114"
+        },
+        "flags": 1,
+        "description": "The phone number of the contact"
+      }
+    },
+    "additionalProperties": null,
+    "sensitive": null
+  },
+  {
+    "$type": "ArrayType",
+    "itemType": {
+      "$ref": "#/115"
+    },
+    "minLength": null,
+    "maxLength": null
+  },
+  {
+    "$type": "ObjectType",
+    "name": "Contact[]",
+    "properties": {},
+    "additionalProperties": null,
+    "sensitive": null
+  },
+  {
+    "$type": "ObjectType",
+    "name": "CertificateContacts",
+    "properties": {
+      "contacts": {
+        "type": {
+          "$ref": "#/116"
+        },
+        "flags": 1,
+        "description": "The list of contacts"
+      }
+    },
+    "additionalProperties": null,
+    "sensitive": null
+  },
+  {
+    "$type": "ResourceType",
+    "name": "CertificateContacts",
+    "scopeType": 0,
+    "readOnlyScopes": null,
+    "body": {
+      "$ref": "#/118"
+    },
+    "flags": 0,
+    "functions": null
+  },
+  {
+    "$type": "StringType",
+    "sensitive": null,
+    "minLength": null,
+    "maxLength": null,
+    "pattern": null
+  },
+  {
+    "$type": "StringType",
+    "sensitive": null,
+    "minLength": null,
+    "maxLength": null,
+    "pattern": null
+  },
+  {
+    "$type": "ObjectType",
+    "name": "Certificate",
+    "properties": {
+      "data": {
+        "type": {
+          "$ref": "#/121"
+        },
+        "flags": 0,
+        "description": "The certificate data"
+      }
+    },
+    "additionalProperties": null,
+    "sensitive": null
+  },
+  {
+    "$type": "FunctionType",
+    "parameters": [
+      {
+        "name": "name",
+        "type": {
+          "$ref": "#/120"
+        },
+        "description": "The name of the certificate"
+      }
+    ],
+    "output": {
+      "$ref": "#/122"
+    }
+  },
+  {
+    "$type": "StringType",
+    "sensitive": false,
+    "minLength": null,
+    "maxLength": null,
+    "pattern": null
+  },
+  {
+    "$type": "StringType",
+    "sensitive": true,
+    "minLength": null,
+    "maxLength": null,
+    "pattern": null
+  },
+  {
+    "$type": "NullType"
+  },
+  {
+    "$type": "UnionType",
+    "elements": [
+      {
+        "$ref": "#/125"
+      },
+      {
+        "$ref": "#/126"
+      }
+    ]
+  },
+  {
+    "$type": "StringType",
+    "sensitive": false,
+    "minLength": null,
+    "maxLength": null,
+    "pattern": null
+  },
+  {
+    "$type": "StringType",
+    "sensitive": false,
+    "minLength": null,
+    "maxLength": null,
+    "pattern": null
+  },
+  {
+    "$type": "StringType",
+    "sensitive": false,
+    "minLength": null,
+    "maxLength": null,
+    "pattern": null
+  },
+  {
+    "$type": "NullType"
+  },
+  {
+    "$type": "UnionType",
+    "elements": [
+      {
+        "$ref": "#/12"
+      },
+      {
+        "$ref": "#/131"
+      }
+    ]
+  },
+  {
+    "$type": "NullType"
+  },
+  {
+    "$type": "UnionType",
+    "elements": [
+      {
+        "$ref": "#/61"
+      },
+      {
+        "$ref": "#/133"
+      }
+    ]
+  },
+  {
+    "$type": "NullType"
+  },
+  {
+    "$type": "UnionType",
+    "elements": [
+      {
+        "$ref": "#/12"
+      },
+      {
+        "$ref": "#/135"
+      }
+    ]
+  },
+  {
+    "$type": "StringType",
+    "sensitive": false,
+    "minLength": null,
+    "maxLength": null,
+    "pattern": null
+  },
+  {
+    "$type": "StringType",
+    "sensitive": false,
+    "minLength": null,
+    "maxLength": null,
+    "pattern": null
+  },
+  {
+    "$type": "StringType",
+    "sensitive": false,
+    "minLength": null,
+    "maxLength": null,
+    "pattern": null
+  },
+  {
+    "$type": "NullType"
+  },
+  {
+    "$type": "UnionType",
+    "elements": [
+      {
+        "$ref": "#/96"
+      },
+      {
+        "$ref": "#/140"
+      }
+    ]
+  },
+  {
+    "$type": "StringType",
+    "sensitive": false,
+    "minLength": null,
+    "maxLength": null,
+    "pattern": null
+  },
+  {
+    "$type": "NullType"
+  },
+  {
+    "$type": "UnionType",
+    "elements": [
+      {
+        "$ref": "#/142"
+      },
+      {
+        "$ref": "#/143"
+      }
+    ]
+  },
+  {
+    "$type": "ObjectType",
+    "name": "CertificateImport",
+    "properties": {
+      "value": {
+        "type": {
+          "$ref": "#/124"
+        },
+        "flags": 5,
+        "description": "The Base64 representation of the certificate"
+      },
+      "password": {
+        "type": {
+          "$ref": "#/127"
+        },
+        "flags": 4,
+        "description": "The password of the certificate"
+      },
+      "name": {
+        "type": {
+          "$ref": "#/128"
+        },
+        "flags": 17,
+        "description": "The name of the certificate"
+      },
+      "issuerName": {
+        "type": {
+          "$ref": "#/129"
+        },
+        "flags": 1,
+        "description": "The version of the certificate"
+      },
+      "subject": {
+        "type": {
+          "$ref": "#/130"
+        },
+        "flags": 1,
+        "description": "Subject of the certificate"
+      },
+      "policy": {
+        "type": {
+          "$ref": "#/57"
+        },
+        "flags": 1,
+        "description": "The policy of the certificate"
+      },
+      "enabled": {
+        "type": {
+          "$ref": "#/132"
+        },
+        "flags": 0,
+        "description": "TWhether the certificate is enabled on creation"
+      },
+      "tags": {
+        "type": {
+          "$ref": "#/134"
+        },
+        "flags": 0,
+        "description": "The tags of the certificate"
+      },
+      "preserveCertificateOrder": {
+        "type": {
+          "$ref": "#/136"
+        },
+        "flags": 0,
+        "description": "Whether the certificate order is preserved. if false, the leaf certificate will be placed at index 0"
+      },
+      "id": {
+        "type": {
+          "$ref": "#/137"
+        },
+        "flags": 2,
+        "description": "The certificate id"
+      },
+      "keyId": {
+        "type": {
+          "$ref": "#/138"
+        },
+        "flags": 2,
+        "description": "Id of the backing key"
+      },
+      "secretId": {
+        "type": {
+          "$ref": "#/139"
+        },
+        "flags": 2,
+        "description": "Id of the backing secret"
+      },
+      "data": {
+        "type": {
+          "$ref": "#/141"
+        },
+        "flags": 2,
+        "description": "The certificate data."
+      },
+      "cer": {
+        "type": {
+          "$ref": "#/144"
+        },
+        "flags": 2,
+        "description": "The public key content in base64 format"
+      }
+    },
+    "additionalProperties": null,
+    "sensitive": null
+  },
+  {
+    "$type": "ResourceType",
+    "name": "CertificateImport",
+    "scopeType": 0,
+    "readOnlyScopes": null,
+    "body": {
+      "$ref": "#/145"
+    },
+    "flags": 0,
+    "functions": null
+  },
+  {
+    "$type": "StringType",
+    "sensitive": null,
+    "minLength": null,
+    "maxLength": null,
+    "pattern": null
+  },
+  {
+    "$type": "StringType",
+    "sensitive": null,
+    "minLength": null,
+    "maxLength": null,
+    "pattern": null
+  },
+  {
+    "$type": "ObjectType",
+    "name": "Certificate",
+    "properties": {
+      "data": {
+        "type": {
+          "$ref": "#/148"
+        },
+        "flags": 0,
+        "description": "The certificate data"
+      }
+    },
+    "additionalProperties": null,
+    "sensitive": null
+  },
+  {
+    "$type": "FunctionType",
+    "parameters": [
+      {
+        "name": "name",
+        "type": {
+          "$ref": "#/147"
+        },
+        "description": "The name of the certificate"
+      }
+    ],
+    "output": {
+      "$ref": "#/149"
+    }
+  },
+  {
+    "$type": "StringType",
+    "sensitive": false,
+    "minLength": null,
+    "maxLength": null,
+    "pattern": null
+  },
+  {
+    "$type": "StringType",
+    "sensitive": false,
+    "minLength": null,
+    "maxLength": null,
+    "pattern": null
+  },
+  {
+    "$type": "StringType",
+    "sensitive": true,
+    "minLength": null,
+    "maxLength": null,
+    "pattern": null
+  },
+  {
+    "$type": "StringType",
+    "sensitive": false,
+    "minLength": null,
+    "maxLength": null,
+    "pattern": null
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "DigiCert"
+  },
+  {
+    "$type": "StringType",
+    "sensitive": false,
+    "minLength": null,
+    "maxLength": null,
+    "pattern": null
+  },
+  {
+    "$type": "ObjectType",
+    "name": "DigicertCredentials",
+    "properties": {
+      "provider": {
+        "type": {
+          "$ref": "#/155"
+        },
+        "flags": 1,
+        "description": "The provider of the certificate"
+      },
+      "organizationId": {
+        "type": {
+          "$ref": "#/156"
+        },
+        "flags": 1,
+        "description": "The organization ID"
+      }
+    },
+    "additionalProperties": null,
+    "sensitive": null
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "GlobalSign"
+  },
+  {
+    "$type": "StringType",
+    "sensitive": false,
+    "minLength": null,
+    "maxLength": null,
+    "pattern": null
+  },
+  {
+    "$type": "StringType",
+    "sensitive": false,
+    "minLength": null,
+    "maxLength": null,
+    "pattern": null
+  },
+  {
+    "$type": "StringType",
+    "sensitive": false,
+    "minLength": null,
+    "maxLength": null,
+    "pattern": null
+  },
+  {
+    "$type": "StringType",
+    "sensitive": false,
+    "minLength": null,
+    "maxLength": null,
+    "pattern": null
+  },
+  {
+    "$type": "ObjectType",
+    "name": "GlobalSignCredentials",
+    "properties": {
+      "provider": {
+        "type": {
+          "$ref": "#/158"
+        },
+        "flags": 1,
+        "description": "The provider of the certificate"
+      },
+      "firstName": {
+        "type": {
+          "$ref": "#/159"
+        },
+        "flags": 1,
+        "description": "The first name of the administrator"
+      },
+      "lastName": {
+        "type": {
+          "$ref": "#/160"
+        },
+        "flags": 1,
+        "description": "The last name of the administrator"
+      },
+      "email": {
+        "type": {
+          "$ref": "#/161"
+        },
+        "flags": 1,
+        "description": "The email of the administrator"
+      },
+      "phone": {
+        "type": {
+          "$ref": "#/162"
+        },
+        "flags": 1,
+        "description": "The phone number of the administrator"
+      }
+    },
+    "additionalProperties": null,
+    "sensitive": null
+  },
+  {
+    "$type": "DiscriminatedObjectType",
+    "name": "CertificateIssuerCredential",
+    "discriminator": "provider",
+    "baseProperties": {
+      "accountId": {
+        "type": {
+          "$ref": "#/152"
+        },
+        "flags": 1,
+        "description": "The account ID with the provider"
+      },
+      "password": {
+        "type": {
+          "$ref": "#/153"
+        },
+        "flags": 5,
+        "description": "The password of the account"
+      },
+      "providerName": {
+        "type": {
+          "$ref": "#/154"
+        },
+        "flags": 2,
+        "description": "The name of the provider"
+      }
+    },
+    "elements": {
+      "DigicertCredentials": {
+        "$ref": "#/157"
+      },
+      "GlobalSignCredentials": {
+        "$ref": "#/163"
+      }
+    }
+  },
+  {
+    "$type": "ObjectType",
+    "name": "CertificateIssuer",
+    "properties": {
+      "name": {
+        "type": {
+          "$ref": "#/151"
+        },
+        "flags": 17,
+        "description": "The name of the issue"
+      },
+      "provider": {
+        "type": {
+          "$ref": "#/164"
+        },
+        "flags": 1,
+        "description": "The provider of the certificate"
+      }
+    },
+    "additionalProperties": null,
+    "sensitive": null
+  },
+  {
+    "$type": "ResourceType",
+    "name": "CertificateIssuer",
+    "scopeType": 0,
+    "readOnlyScopes": null,
+    "body": {
+      "$ref": "#/165"
+    },
+    "flags": 0,
+    "functions": null
+  },
+  {
+    "$type": "StringType",
+    "sensitive": null,
+    "minLength": null,
+    "maxLength": null,
+    "pattern": null
+  },
+  {
+    "$type": "StringType",
+    "sensitive": null,
+    "minLength": null,
+    "maxLength": null,
+    "pattern": null
+  },
+  {
+    "$type": "ObjectType",
+    "name": "Certificate",
+    "properties": {
+      "data": {
+        "type": {
+          "$ref": "#/168"
+        },
+        "flags": 0,
+        "description": "The certificate data"
+      }
+    },
+    "additionalProperties": null,
+    "sensitive": null
+  },
+  {
+    "$type": "FunctionType",
+    "parameters": [
+      {
+        "name": "name",
+        "type": {
+          "$ref": "#/167"
+        },
+        "description": "The name of the certificate"
+      }
+    ],
+    "output": {
+      "$ref": "#/169"
+    }
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "Pkcs12"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "Pem"
+  },
+  {
+    "$type": "NullType"
+  },
+  {
+    "$type": "UnionType",
+    "elements": [
+      {
+        "$ref": "#/12"
+      },
+      {
+        "$ref": "#/173"
+      }
+    ]
+  },
+  {
+    "$type": "NullType"
+  },
+  {
+    "$type": "UnionType",
+    "elements": [
+      {
+        "$ref": "#/12"
+      },
+      {
+        "$ref": "#/175"
+      }
+    ]
+  },
+  {
+    "$type": "StringType",
+    "sensitive": false,
+    "minLength": null,
+    "maxLength": null,
+    "pattern": null
+  },
+  {
+    "$type": "NullType"
+  },
+  {
+    "$type": "UnionType",
+    "elements": [
+      {
+        "$ref": "#/177"
+      },
+      {
+        "$ref": "#/178"
+      }
+    ]
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "Ec"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "EcHsm"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "Rsa"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "RsaHsm"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "2048"
+  },
+  {
+    "$type": "StringLiteralType",
+    "value": "4096"
+  },
+  {
+    "$type": "UnionType",
+    "elements": [
+      {
+        "$ref": "#/184"
+      },
+      {
+        "$ref": "#/185"
+      }
+    ]
+  },
+  {
+    "$type": "NullType"
+  },
+  {
+    "$type": "UnionType",
+    "elements": [
+      {
+        "$ref": "#/16"
+      },
+      {
+        "$ref": "#/187"
+      }
+    ]
+  },
+  {
+    "$type": "StringType",
+    "sensitive": false,
+    "minLength": null,
+    "maxLength": null,
+    "pattern": null
+  },
+  {
+    "$type": "NullType"
+  },
+  {
+    "$type": "UnionType",
+    "elements": [
+      {
+        "$ref": "#/189"
+      },
+      {
+        "$ref": "#/190"
+      }
+    ]
+  },
+  {
+    "$type": "NullType"
+  },
+  {
+    "$type": "UnionType",
+    "elements": [
+      {
+        "$ref": "#/44"
+      },
+      {
+        "$ref": "#/192"
+      }
+    ]
+  },
+  {
+    "$type": "ObjectType",
+    "name": "CertificatePolicy",
+    "properties": {
+      "contentType": {
+        "type": {
+          "$ref": "#/11"
+        },
+        "flags": 1,
+        "description": "The content type of the certificate. Set to Pkcs12 when Cer contains your raw PKCS#12/PFX bytes, or to Pem when Cer contains your ASCII PEM-encoded bytes. If not specified, Pkcs12 is assumed."
+      },
+      "enabled": {
+        "type": {
+          "$ref": "#/174"
+        },
+        "flags": 0,
+        "description": "If the certificate is enabled"
+      },
+      "subjectAlternativeNames": {
+        "type": {
+          "$ref": "#/24"
+        },
+        "flags": 2,
+        "description": "The subject alternative names of the certificate"
+      },
+      "certificateTransparency": {
+        "type": {
+          "$ref": "#/176"
+        },
+        "flags": 0,
+        "description": "Gets or sets a value indicating whether a certificate should be published to the certificate transparency list when created."
+      },
+      "exportable": {
+        "type": {
+          "$ref": "#/12"
+        },
+        "flags": 1,
+        "description": "Whether the certificate is exportable or not"
+      },
+      "certificateType": {
+        "type": {
+          "$ref": "#/179"
+        },
+        "flags": 0,
+        "description": "The type of the certificate"
+      },
+      "keyType": {
+        "type": {
+          "$ref": "#/34"
+        },
+        "flags": 1,
+        "description": "Gets or sets the type of backing key to be generated when issuing new certificates."
+      },
+      "keySize": {
+        "type": {
+          "$ref": "#/186"
+        },
+        "flags": 1,
+        "description": "The size of the RSA key. Must either be 2048 or 4096"
+      },
+      "keyUsage": {
+        "type": {
+          "$ref": "#/39"
+        },
+        "flags": 2,
+        "description": "The allowed usages of the key of the certificate"
+      },
+      "lifetimeActions": {
+        "type": {
+          "$ref": "#/49"
+        },
+        "flags": 0,
+        "description": "The lifetime actions"
+      },
+      "reuseKey": {
+        "type": {
+          "$ref": "#/12"
+        },
+        "flags": 1,
+        "description": "Whether the key should be reused when rotating certificates"
+      },
+      "enhancedKeyUsages": {
+        "type": {
+          "$ref": "#/188"
+        },
+        "flags": 2,
+        "description": "The allowed enhanced key usages of the certificate"
+      },
+      "keyCurveName": {
+        "type": {
+          "$ref": "#/191"
+        },
+        "flags": 0,
+        "description": "Gets or sets the curve which back an Elliptic Curve (EC) key."
+      },
+      "validityInMonths": {
+        "type": {
+          "$ref": "#/193"
+        },
+        "flags": 0,
+        "description": "Validity of the certificate in months"
+      }
+    },
+    "additionalProperties": null,
+    "sensitive": null
+  },
+  {
+    "$type": "ResourceType",
+    "name": "CertificatePolicy",
+    "scopeType": 0,
+    "readOnlyScopes": null,
+    "body": {
+      "$ref": "#/194"
+    },
+    "flags": 0,
+    "functions": null
+  },
+  {
+    "$type": "StringType",
+    "sensitive": null,
+    "minLength": null,
+    "maxLength": null,
+    "pattern": null
+  },
+  {
+    "$type": "StringType",
+    "sensitive": null,
+    "minLength": null,
+    "maxLength": null,
+    "pattern": null
+  },
+  {
+    "$type": "ObjectType",
+    "name": "Certificate",
+    "properties": {
+      "data": {
+        "type": {
+          "$ref": "#/197"
+        },
+        "flags": 0,
+        "description": "The certificate data"
+      }
+    },
+    "additionalProperties": null,
+    "sensitive": null
+  },
+  {
+    "$type": "FunctionType",
+    "parameters": [
+      {
+        "name": "name",
+        "type": {
+          "$ref": "#/196"
+        },
+        "description": "The name of the certificate"
+      }
+    ],
+    "output": {
+      "$ref": "#/198"
+    }
+  },
+  {
+    "$type": "StringType",
+    "sensitive": false,
+    "minLength": null,
+    "maxLength": null,
+    "pattern": "^https:\\/\\/[a-zA-Z0-9\\-\\.]\u002B(\\/\\S*)?$"
+  },
+  {
+    "$type": "ObjectType",
+    "name": "Configuration",
+    "properties": {
+      "keyVaultUrl": {
+        "type": {
+          "$ref": "#/200"
+        },
+        "flags": 17,
+        "description": "The full url of the keyvault"
+      }
+    },
+    "additionalProperties": null,
+    "sensitive": null
+  },
+  {
+    "$type": "ResourceType",
+    "name": "Configuration",
+    "scopeType": 0,
+    "readOnlyScopes": null,
+    "body": {
+      "$ref": "#/201"
+    },
+    "flags": 0,
+    "functions": null
+  }
+]

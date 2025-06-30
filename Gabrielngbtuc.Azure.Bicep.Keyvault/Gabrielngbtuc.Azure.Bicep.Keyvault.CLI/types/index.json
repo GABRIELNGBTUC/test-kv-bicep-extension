@@ -1,0 +1,32 @@
+{
+  "resources": {
+    "Certificate": {
+      "$ref": "types.json#/103"
+    },
+    "CertificateContacts": {
+      "$ref": "types.json#/119"
+    },
+    "CertificateImport": {
+      "$ref": "types.json#/146"
+    },
+    "CertificateIssuer": {
+      "$ref": "types.json#/166"
+    },
+    "CertificatePolicy": {
+      "$ref": "types.json#/195"
+    },
+    "Configuration": {
+      "$ref": "types.json#/202"
+    }
+  },
+  "resourceFunctions": {},
+  "settings": {
+    "name": "az-keyvault-tuc-ext",
+    "version": "1.0.0",
+    "isSingleton": false,
+    "configurationType": {
+      "$ref": "types.json#/1"
+    }
+  },
+  "fallbackResourceType": null
+}
