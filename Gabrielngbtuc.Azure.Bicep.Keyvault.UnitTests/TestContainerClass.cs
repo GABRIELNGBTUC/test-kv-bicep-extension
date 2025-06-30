@@ -10,7 +10,7 @@ public class TestContainerClass
 {
     public AzureKeyVaultEmulatorContainer GetKeyvaultEmulatorContainer()
     {
-        var container = new AzureKeyVaultEmulatorContainer("D:/KeyvaultEmulator", false);
+        var container = new AzureKeyVaultEmulatorContainer();
         return container;
     }
 }

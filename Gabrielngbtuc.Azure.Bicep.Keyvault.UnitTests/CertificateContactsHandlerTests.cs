@@ -50,14 +50,48 @@ public class CertificateContactsHandlerTests : TestContainerClass
         {
             await container.StopAsync();
             await container.DisposeAsync();
-            await Task.Delay(5000);
         }
     }
     
     [TestMethod]
-    public void TestUpdate()
+    public async Task TestUpdate()
     {
-        
+        var container = GetKeyvaultEmulatorContainer();
+        await container.StartAsync();
+        try
+        {
+            Contact[] contactsToMatch = [
+                new Contact("gettest@gmail.com", "GetTest", "1234567890"),
+                new Contact("gettest2@gmail.com", "GetTest2", "1234567890")
+            ];
+            var newContact = new CertificateContacts(contactsToMatch);
+            await handler.CreateOrUpdate(
+                HandlerHelper.GetResourceSpecification(newContact),
+                CancellationToken.None
+            );
+
+            var getResponse = await handler.Get(
+                HandlerHelper.GetResourceReference(new CertificateContactsHandler.Identifiers()),
+                CancellationToken.None
+            );
+
+            var contactsResponse =
+                (getResponse?.Resource?.Properties).Deserialize<CertificateContacts>(
+                    HandlerHelper.JsonSerializerOptions);
+            Assert.IsNotNull(contactsResponse);
+            Assert.IsTrue(
+                contactsResponse.Contacts.All(c => contactsToMatch.Any(c2 => c2 == c))
+                );
+        }
+        catch
+        {
+            throw;
+        }
+        finally
+        {
+            await container.StopAsync();
+            await container.DisposeAsync();
+        }
     }
     
     
@@ -97,7 +131,6 @@ public class CertificateContactsHandlerTests : TestContainerClass
         {
             await container.StopAsync();
             await container.DisposeAsync();
-            await Task.Delay(5000);
         }
     }
     
