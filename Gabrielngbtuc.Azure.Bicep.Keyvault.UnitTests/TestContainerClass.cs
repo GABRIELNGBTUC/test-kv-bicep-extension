@@ -10,7 +10,7 @@ public class TestContainerClass
 {
     public AzureKeyVaultEmulatorContainer GetKeyvaultEmulatorContainer()
     {
-        var container = new AzureKeyVaultEmulatorContainer();
+        var container = new AzureKeyVaultEmulatorContainer(Environment.GetEnvironmentVariable("AZURE_KEYVAULT_EMULATOR_CERTIFICATE_DIRECTORY"));
         return container;
     }
 
