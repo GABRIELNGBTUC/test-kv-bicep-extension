@@ -45,5 +45,6 @@ jobs:
         dotnet dev-certs https -ep ./emulator.pfx  -q
         
         echo Created emulator.pfx with password emulator. You must now install these certificates locally as a Trusted Root CA Authority.
+        cp emulator.crt /usr/local/share/ca-certificates/emulator.crt && update-ca-certificates
     - name: Test
       run: dotnet test --no-build --verbosity normal
