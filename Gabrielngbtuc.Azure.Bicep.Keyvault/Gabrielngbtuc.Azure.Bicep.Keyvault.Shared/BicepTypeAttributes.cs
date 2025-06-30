@@ -1,4 +1,5 @@
-﻿using System.Text.Json;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Text.Json;
 using System.Text.Json.Serialization;
 using Azure.Bicep.Types.Concrete;
 
@@ -8,6 +9,7 @@ namespace Gabrielngbtuc.Azure.Bicep.Keyvault.Shared;
 /// When used on a property. Means that the property will be exposed as a property of the bicep type.
 /// </summary>
 [AttributeUsage(AttributeTargets.Property)]
+[ExcludeFromCodeCoverage]
 public class TypeAnnotationAttribute : Attribute
 {
     /// <summary>
@@ -70,6 +72,7 @@ public class TypeAnnotationAttribute : Attribute
 /// </code>
 /// </example>
 [AttributeUsage(AttributeTargets.Class)]
+[ExcludeFromCodeCoverage]
 public class BicepParentTypeAttribute : Attribute
 {
     public BicepParentTypeAttribute(
@@ -89,6 +92,7 @@ public class BicepParentTypeAttribute : Attribute
 /// <para> Is not required for types that are used as properties or for the type used to configure an extension. </para>
 /// </summary>
 [AttributeUsage(AttributeTargets.Class)]
+[ExcludeFromCodeCoverage]
 public class BicepSerializableType : Attribute;
 
 /// <summary>
@@ -99,6 +103,7 @@ public class BicepSerializableType : Attribute;
 /// <para>3. Use enums and the attribute <see cref="BicepStringLiteralValue"/> along the <see langword="nameOf"/> keyword to avoid magic values</para>
 /// </summary>
 [AttributeUsage(AttributeTargets.Class)]
+[ExcludeFromCodeCoverage]
 public class BicepDiscriminatorType : Attribute
 {
     /// <summary>
@@ -130,6 +135,7 @@ public class BicepDiscriminatorType : Attribute
 /// allows to differentiate discriminated types
 /// </summary>
 [AttributeUsage(AttributeTargets.Property)]
+[ExcludeFromCodeCoverage]
 public class BicepStringLiteralValue : Attribute
 {
     public string Value { get; }
@@ -141,12 +147,15 @@ public class BicepStringLiteralValue : Attribute
 }
 
 [AttributeUsage(AttributeTargets.Property)]
+[ExcludeFromCodeCoverage]
 public class BicepNullableType : Attribute;
 
 [AttributeUsage(AttributeTargets.Property)]
+[ExcludeFromCodeCoverage]
 public class BicepNonNullableString : Attribute;
 
 [AttributeUsage(AttributeTargets.Property)]
+[ExcludeFromCodeCoverage]
 public class BicepStringLiteralUnion : Attribute
 {
     public string[] Values { get; }
@@ -161,6 +170,7 @@ public class BicepStringLiteralUnion : Attribute
 /// Sets the sensitivity of a bicep string. Is inherited if set on a property with type string[]
 /// </summary>
 [AttributeUsage(AttributeTargets.Property)]
+[ExcludeFromCodeCoverage]
 public class BicepStringTypeSensitiveAttribute : Attribute
 {
     public bool Sensitive { get; }
@@ -176,6 +186,7 @@ public class BicepStringTypeSensitiveAttribute : Attribute
 /// Is inherited if set on a property with type string[]
 /// </summary>
 [AttributeUsage(AttributeTargets.Property)]
+[ExcludeFromCodeCoverage]
 public class BicepStringTypeMinimumLengthAttribute : Attribute
 {
     public long Length { get; }
@@ -192,6 +203,7 @@ public class BicepStringTypeMinimumLengthAttribute : Attribute
 /// Is inherited if set on a property with type string[]
 /// </summary>
 [AttributeUsage(AttributeTargets.Property)]
+[ExcludeFromCodeCoverage]
 public class BicepStringTypeMaximumLengthAttribute : Attribute
 {
     public long Length { get; }
@@ -207,6 +219,7 @@ public class BicepStringTypeMaximumLengthAttribute : Attribute
 /// Is inherited if set on a property with type string[]
 /// </summary>
 [AttributeUsage(AttributeTargets.Property)]
+[ExcludeFromCodeCoverage]
 public class BicepStringTypeRegexPatternAttribute : Attribute
 {
     public string Pattern { get; }
@@ -217,12 +230,14 @@ public class BicepStringTypeRegexPatternAttribute : Attribute
     }
 }
 
+[ExcludeFromCodeCoverage]
 public class BicepAllowInheritedPropertiesAttribute : Attribute;
 
 /// <summary>
 /// JSON converter to be used with nullable enum (Enum?) inside Bicep serializable types
 /// </summary>
 /// <typeparam name="T">The type of the enum to deserialize</typeparam>
+[ExcludeFromCodeCoverage]
 public class NullableBicepEnumConverter<T> : JsonConverter<T?> where T : struct, Enum
 {
     public override T? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
@@ -264,6 +279,7 @@ public class NullableBicepEnumConverter<T> : JsonConverter<T?> where T : struct,
 /// JSON converter to be used with enum inside Bicep serializable types
 /// </summary>
 /// <typeparam name="T">The type of the enum to deserialize</typeparam>
+[ExcludeFromCodeCoverage]
 public class BicepEnumConverter<T> : JsonConverter<T> where T : struct, Enum
 {
     public override T Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
@@ -296,6 +312,7 @@ public class BicepEnumConverter<T> : JsonConverter<T> where T : struct, Enum
 /// JSON converter to deserialize arrays of nullable enums (Enum?) inside Bicep serializable types
 /// </summary>
 /// <typeparam name="T">The type of the enum to deserialize</typeparam>
+[ExcludeFromCodeCoverage]
 public class NullableBicepEnumArrayConverter<T> : JsonConverter<T?[]> where T : struct, Enum
 {
     public override T?[] Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
@@ -375,6 +392,7 @@ public class NullableBicepEnumArrayConverter<T> : JsonConverter<T?[]> where T : 
 /// JSON converter to deserialize arrays of enums inside Bicep serializable types
 /// </summary>
 /// <typeparam name="T">The type of the enum to deserialize</typeparam>
+[ExcludeFromCodeCoverage]
 public class BicepEnumArrayConverter<T> : JsonConverter<T[]> where T : struct, Enum
 {
     public override T[] Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
@@ -437,6 +455,7 @@ public class BicepEnumArrayConverter<T> : JsonConverter<T[]> where T : struct, E
     }
 }
 
+[ExcludeFromCodeCoverage]
 public class StringToIntJsonConverter : JsonConverter<int>
 {
     // Désérialisation : Convertir une chaîne en un entier

@@ -5,7 +5,8 @@ namespace Gabrielngbtuc.Azure.Bicep.Keyvault.Shared.Models;
 
 [BicepSerializableType]
 public record Certificate(
-    [property: TypeAnnotation("The name of the certificate", ObjectTypePropertyFlags.Identifier | ObjectTypePropertyFlags.Required)]
+    [property: TypeAnnotation("The name of the certificate",
+        ObjectTypePropertyFlags.Identifier | ObjectTypePropertyFlags.Required)]
     string Name,
     [property: TypeAnnotation("The version of the certificate", ObjectTypePropertyFlags.Required)]
     string IssuerName,
@@ -13,12 +14,6 @@ public record Certificate(
     string Subject,
     [property: TypeAnnotation("The policy of the certificate", ObjectTypePropertyFlags.Required)]
     CertificatePolicy policy,
-    [property: TypeAnnotation("TWhether the certificate is enabled on creation")]
-    bool? Enabled,
-    [property: TypeAnnotation("The tags of the certificate")]
-    Dictionary<string, string>? Tags,
-    [property: TypeAnnotation("Whether the certificate order is preserved. if false, the leaf certificate will be placed at index 0")]
-    bool? PreserveCertificateOrder,
     //Retrieved from Azure
     [property: TypeAnnotation("The certificate id", ObjectTypePropertyFlags.ReadOnly)]
     string Id,
@@ -27,10 +22,17 @@ public record Certificate(
     [property: TypeAnnotation("Id of the backing secret", ObjectTypePropertyFlags.ReadOnly)]
     string SecretId,
     [property: TypeAnnotation("The certificate data.", ObjectTypePropertyFlags.ReadOnly)]
-    CertificateData? Data,
+    CertificateData? Data = null,
     [property: TypeAnnotation("The public key content in base64 format", ObjectTypePropertyFlags.ReadOnly)]
-    string? Cer
-    );
+    string? Cer = null,
+    [property: TypeAnnotation("TWhether the certificate is enabled on creation")]
+    bool? Enabled = null,
+    [property: TypeAnnotation("The tags of the certificate")]
+    Dictionary<string, string>? Tags = null,
+    [property: TypeAnnotation(
+        "Whether the certificate order is preserved. if false, the leaf certificate will be placed at index 0")]
+    bool? PreserveCertificateOrder = null
+);
     
     public record CertificateData(
         [property: TypeAnnotation("Id of the certificate", ObjectTypePropertyFlags.ReadOnly)]

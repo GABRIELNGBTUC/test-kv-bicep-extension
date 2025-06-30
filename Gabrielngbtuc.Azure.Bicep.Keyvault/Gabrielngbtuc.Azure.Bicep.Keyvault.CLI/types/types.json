@@ -4,7 +4,7 @@
     "sensitive": false,
     "minLength": null,
     "maxLength": null,
-    "pattern": "^https:\\/\\/[a-zA-Z0-9\\-\\.]\u002B(\\/\\S*)?$"
+    "pattern": null
   },
   {
     "$type": "ObjectType",
@@ -109,148 +109,6 @@
     "$type": "BooleanType"
   },
   {
-    "$type": "NullType"
-  },
-  {
-    "$type": "UnionType",
-    "elements": [
-      {
-        "$ref": "#/12"
-      },
-      {
-        "$ref": "#/13"
-      }
-    ]
-  },
-  {
-    "$type": "StringType",
-    "sensitive": null,
-    "minLength": null,
-    "maxLength": null,
-    "pattern": null
-  },
-  {
-    "$type": "ArrayType",
-    "itemType": {
-      "$ref": "#/15"
-    },
-    "minLength": null,
-    "maxLength": null
-  },
-  {
-    "$type": "ObjectType",
-    "name": "String[]",
-    "properties": {},
-    "additionalProperties": null,
-    "sensitive": null
-  },
-  {
-    "$type": "NullType"
-  },
-  {
-    "$type": "UnionType",
-    "elements": [
-      {
-        "$ref": "#/16"
-      },
-      {
-        "$ref": "#/18"
-      }
-    ]
-  },
-  {
-    "$type": "NullType"
-  },
-  {
-    "$type": "UnionType",
-    "elements": [
-      {
-        "$ref": "#/16"
-      },
-      {
-        "$ref": "#/20"
-      }
-    ]
-  },
-  {
-    "$type": "NullType"
-  },
-  {
-    "$type": "UnionType",
-    "elements": [
-      {
-        "$ref": "#/16"
-      },
-      {
-        "$ref": "#/22"
-      }
-    ]
-  },
-  {
-    "$type": "ObjectType",
-    "name": "SubjectAlternativeNamesData",
-    "properties": {
-      "dnsNames": {
-        "type": {
-          "$ref": "#/19"
-        },
-        "flags": 0,
-        "description": "The list of domains"
-      },
-      "emails": {
-        "type": {
-          "$ref": "#/21"
-        },
-        "flags": 0,
-        "description": "The list of emails"
-      },
-      "userPrincipalNames": {
-        "type": {
-          "$ref": "#/23"
-        },
-        "flags": 0,
-        "description": "The list of upns"
-      }
-    },
-    "additionalProperties": null,
-    "sensitive": null
-  },
-  {
-    "$type": "NullType"
-  },
-  {
-    "$type": "UnionType",
-    "elements": [
-      {
-        "$ref": "#/12"
-      },
-      {
-        "$ref": "#/25"
-      }
-    ]
-  },
-  {
-    "$type": "StringType",
-    "sensitive": false,
-    "minLength": null,
-    "maxLength": null,
-    "pattern": null
-  },
-  {
-    "$type": "NullType"
-  },
-  {
-    "$type": "UnionType",
-    "elements": [
-      {
-        "$ref": "#/27"
-      },
-      {
-        "$ref": "#/28"
-      }
-    ]
-  },
-  {
     "$type": "StringLiteralType",
     "value": "Ec"
   },
@@ -270,16 +128,16 @@
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/30"
+        "$ref": "#/13"
       },
       {
-        "$ref": "#/31"
+        "$ref": "#/14"
       },
       {
-        "$ref": "#/32"
+        "$ref": "#/15"
       },
       {
-        "$ref": "#/33"
+        "$ref": "#/16"
       }
     ]
   },
@@ -295,10 +153,206 @@
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/35"
+        "$ref": "#/18"
+      },
+      {
+        "$ref": "#/19"
+      }
+    ]
+  },
+  {
+    "$type": "StringType",
+    "sensitive": null,
+    "minLength": null,
+    "maxLength": null,
+    "pattern": null
+  },
+  {
+    "$type": "ArrayType",
+    "itemType": {
+      "$ref": "#/21"
+    },
+    "minLength": null,
+    "maxLength": null
+  },
+  {
+    "$type": "ObjectType",
+    "name": "String[]",
+    "properties": {},
+    "additionalProperties": null,
+    "sensitive": null
+  },
+  {
+    "$type": "NullType"
+  },
+  {
+    "$type": "UnionType",
+    "elements": [
+      {
+        "$ref": "#/22"
+      },
+      {
+        "$ref": "#/24"
+      }
+    ]
+  },
+  {
+    "$type": "StringType",
+    "sensitive": false,
+    "minLength": null,
+    "maxLength": null,
+    "pattern": null
+  },
+  {
+    "$type": "NullType"
+  },
+  {
+    "$type": "UnionType",
+    "elements": [
+      {
+        "$ref": "#/26"
+      },
+      {
+        "$ref": "#/27"
+      }
+    ]
+  },
+  {
+    "$type": "IntegerType",
+    "minValue": null,
+    "maxValue": null
+  },
+  {
+    "$type": "NullType"
+  },
+  {
+    "$type": "UnionType",
+    "elements": [
+      {
+        "$ref": "#/29"
+      },
+      {
+        "$ref": "#/30"
+      }
+    ]
+  },
+  {
+    "$type": "NullType"
+  },
+  {
+    "$type": "UnionType",
+    "elements": [
+      {
+        "$ref": "#/12"
+      },
+      {
+        "$ref": "#/32"
+      }
+    ]
+  },
+  {
+    "$type": "NullType"
+  },
+  {
+    "$type": "UnionType",
+    "elements": [
+      {
+        "$ref": "#/22"
+      },
+      {
+        "$ref": "#/34"
+      }
+    ]
+  },
+  {
+    "$type": "NullType"
+  },
+  {
+    "$type": "UnionType",
+    "elements": [
+      {
+        "$ref": "#/22"
       },
       {
         "$ref": "#/36"
+      }
+    ]
+  },
+  {
+    "$type": "NullType"
+  },
+  {
+    "$type": "UnionType",
+    "elements": [
+      {
+        "$ref": "#/22"
+      },
+      {
+        "$ref": "#/38"
+      }
+    ]
+  },
+  {
+    "$type": "ObjectType",
+    "name": "SubjectAlternativeNamesData",
+    "properties": {
+      "dnsNames": {
+        "type": {
+          "$ref": "#/35"
+        },
+        "flags": 0,
+        "description": "The list of domains"
+      },
+      "emails": {
+        "type": {
+          "$ref": "#/37"
+        },
+        "flags": 0,
+        "description": "The list of emails"
+      },
+      "userPrincipalNames": {
+        "type": {
+          "$ref": "#/39"
+        },
+        "flags": 0,
+        "description": "The list of upns"
+      }
+    },
+    "additionalProperties": null,
+    "sensitive": null
+  },
+  {
+    "$type": "NullType"
+  },
+  {
+    "$type": "UnionType",
+    "elements": [
+      {
+        "$ref": "#/12"
+      },
+      {
+        "$ref": "#/41"
+      }
+    ]
+  },
+  {
+    "$type": "StringType",
+    "sensitive": false,
+    "minLength": null,
+    "maxLength": null,
+    "pattern": null
+  },
+  {
+    "$type": "NullType"
+  },
+  {
+    "$type": "UnionType",
+    "elements": [
+      {
+        "$ref": "#/43"
+      },
+      {
+        "$ref": "#/44"
       }
     ]
   },
@@ -309,7 +363,7 @@
   {
     "$type": "ArrayType",
     "itemType": {
-      "$ref": "#/38"
+      "$ref": "#/46"
     },
     "minLength": null,
     "maxLength": null
@@ -333,29 +387,10 @@
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/41"
+        "$ref": "#/49"
       },
       {
-        "$ref": "#/42"
-      }
-    ]
-  },
-  {
-    "$type": "IntegerType",
-    "minValue": null,
-    "maxValue": null
-  },
-  {
-    "$type": "NullType"
-  },
-  {
-    "$type": "UnionType",
-    "elements": [
-      {
-        "$ref": "#/44"
-      },
-      {
-        "$ref": "#/45"
+        "$ref": "#/50"
       }
     ]
   },
@@ -366,10 +401,24 @@
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/44"
+        "$ref": "#/29"
       },
       {
-        "$ref": "#/47"
+        "$ref": "#/52"
+      }
+    ]
+  },
+  {
+    "$type": "NullType"
+  },
+  {
+    "$type": "UnionType",
+    "elements": [
+      {
+        "$ref": "#/29"
+      },
+      {
+        "$ref": "#/54"
       }
     ]
   },
@@ -379,21 +428,21 @@
     "properties": {
       "actionType": {
         "type": {
-          "$ref": "#/43"
+          "$ref": "#/51"
         },
         "flags": 0,
         "description": "The action type of the lifetime action"
       },
       "lifetimePercentage": {
         "type": {
-          "$ref": "#/46"
+          "$ref": "#/53"
         },
         "flags": 0,
         "description": "The lifetime percentage at which to trigger the action. Should be between 1 and 99"
       },
       "daysBeforeExpiry": {
         "type": {
-          "$ref": "#/48"
+          "$ref": "#/55"
         },
         "flags": 0,
         "description": "The number of days before the expiration after which the action should execute"
@@ -401,55 +450,6 @@
     },
     "additionalProperties": null,
     "sensitive": null
-  },
-  {
-    "$type": "NullType"
-  },
-  {
-    "$type": "UnionType",
-    "elements": [
-      {
-        "$ref": "#/16"
-      },
-      {
-        "$ref": "#/50"
-      }
-    ]
-  },
-  {
-    "$type": "StringType",
-    "sensitive": false,
-    "minLength": null,
-    "maxLength": null,
-    "pattern": null
-  },
-  {
-    "$type": "NullType"
-  },
-  {
-    "$type": "UnionType",
-    "elements": [
-      {
-        "$ref": "#/52"
-      },
-      {
-        "$ref": "#/53"
-      }
-    ]
-  },
-  {
-    "$type": "NullType"
-  },
-  {
-    "$type": "UnionType",
-    "elements": [
-      {
-        "$ref": "#/44"
-      },
-      {
-        "$ref": "#/55"
-      }
-    ]
   },
   {
     "$type": "ObjectType",
@@ -462,27 +462,6 @@
         "flags": 1,
         "description": "The content type of the certificate. Set to Pkcs12 when Cer contains your raw PKCS#12/PFX bytes, or to Pem when Cer contains your ASCII PEM-encoded bytes. If not specified, Pkcs12 is assumed."
       },
-      "enabled": {
-        "type": {
-          "$ref": "#/14"
-        },
-        "flags": 0,
-        "description": "If the certificate is enabled"
-      },
-      "subjectAlternativeNames": {
-        "type": {
-          "$ref": "#/24"
-        },
-        "flags": 2,
-        "description": "The subject alternative names of the certificate"
-      },
-      "certificateTransparency": {
-        "type": {
-          "$ref": "#/26"
-        },
-        "flags": 0,
-        "description": "Gets or sets a value indicating whether a certificate should be published to the certificate transparency list when created."
-      },
       "exportable": {
         "type": {
           "$ref": "#/12"
@@ -490,40 +469,19 @@
         "flags": 1,
         "description": "Whether the certificate is exportable or not"
       },
-      "certificateType": {
-        "type": {
-          "$ref": "#/29"
-        },
-        "flags": 0,
-        "description": "The type of the certificate"
-      },
       "keyType": {
         "type": {
-          "$ref": "#/34"
+          "$ref": "#/17"
         },
         "flags": 1,
         "description": "Gets or sets the type of backing key to be generated when issuing new certificates."
       },
       "keySize": {
         "type": {
-          "$ref": "#/37"
+          "$ref": "#/20"
         },
         "flags": 1,
         "description": "The size of the RSA key. Must either be 2048 or 4096"
-      },
-      "keyUsage": {
-        "type": {
-          "$ref": "#/39"
-        },
-        "flags": 2,
-        "description": "The allowed usages of the key of the certificate"
-      },
-      "lifetimeActions": {
-        "type": {
-          "$ref": "#/49"
-        },
-        "flags": 0,
-        "description": "The lifetime actions"
       },
       "reuseKey": {
         "type": {
@@ -534,42 +492,133 @@
       },
       "enhancedKeyUsages": {
         "type": {
-          "$ref": "#/51"
+          "$ref": "#/25"
         },
         "flags": 2,
         "description": "The allowed enhanced key usages of the certificate"
       },
       "keyCurveName": {
         "type": {
-          "$ref": "#/54"
+          "$ref": "#/28"
         },
         "flags": 0,
         "description": "Gets or sets the curve which back an Elliptic Curve (EC) key."
       },
       "validityInMonths": {
         "type": {
-          "$ref": "#/56"
+          "$ref": "#/31"
         },
         "flags": 0,
         "description": "Validity of the certificate in months"
+      },
+      "enabled": {
+        "type": {
+          "$ref": "#/33"
+        },
+        "flags": 0,
+        "description": "If the certificate is enabled"
+      },
+      "subjectAlternativeNames": {
+        "type": {
+          "$ref": "#/40"
+        },
+        "flags": 2,
+        "description": "The subject alternative names of the certificate"
+      },
+      "certificateTransparency": {
+        "type": {
+          "$ref": "#/42"
+        },
+        "flags": 0,
+        "description": "Gets or sets a value indicating whether a certificate should be published to the certificate transparency list when created."
+      },
+      "certificateType": {
+        "type": {
+          "$ref": "#/45"
+        },
+        "flags": 0,
+        "description": "The type of the certificate"
+      },
+      "keyUsage": {
+        "type": {
+          "$ref": "#/47"
+        },
+        "flags": 2,
+        "description": "The allowed usages of the key of the certificate"
+      },
+      "lifetimeActions": {
+        "type": {
+          "$ref": "#/56"
+        },
+        "flags": 0,
+        "description": "The lifetime actions"
       }
     },
     "additionalProperties": null,
     "sensitive": null
   },
   {
-    "$type": "NullType"
+    "$type": "StringType",
+    "sensitive": false,
+    "minLength": null,
+    "maxLength": null,
+    "pattern": null
   },
   {
-    "$type": "UnionType",
-    "elements": [
-      {
-        "$ref": "#/12"
-      },
-      {
-        "$ref": "#/58"
-      }
-    ]
+    "$type": "StringType",
+    "sensitive": false,
+    "minLength": null,
+    "maxLength": null,
+    "pattern": null
+  },
+  {
+    "$type": "StringType",
+    "sensitive": false,
+    "minLength": null,
+    "maxLength": null,
+    "pattern": null
+  },
+  {
+    "$type": "StringType",
+    "sensitive": false,
+    "minLength": null,
+    "maxLength": null,
+    "pattern": null
+  },
+  {
+    "$type": "StringType",
+    "sensitive": false,
+    "minLength": null,
+    "maxLength": null,
+    "pattern": null
+  },
+  {
+    "$type": "StringType",
+    "sensitive": false,
+    "minLength": null,
+    "maxLength": null,
+    "pattern": null
+  },
+  {
+    "$type": "StringType",
+    "sensitive": false,
+    "minLength": null,
+    "maxLength": null,
+    "pattern": null
+  },
+  {
+    "$type": "StringType",
+    "sensitive": false,
+    "minLength": null,
+    "maxLength": null,
+    "pattern": null
+  },
+  {
+    "$type": "StringType",
+    "sensitive": false,
+    "minLength": null,
+    "maxLength": null,
+    "pattern": null
   },
   {
     "$type": "StringType",
@@ -583,7 +632,7 @@
     "name": "System.Collections.Generic.Dictionary\u00602[System.String,System.String]",
     "properties": {},
     "additionalProperties": {
-      "$ref": "#/60"
+      "$ref": "#/67"
     },
     "sensitive": null
   },
@@ -594,10 +643,10 @@
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/61"
+        "$ref": "#/68"
       },
       {
-        "$ref": "#/62"
+        "$ref": "#/69"
       }
     ]
   },
@@ -611,65 +660,9 @@
         "$ref": "#/12"
       },
       {
-        "$ref": "#/64"
+        "$ref": "#/71"
       }
     ]
-  },
-  {
-    "$type": "StringType",
-    "sensitive": false,
-    "minLength": null,
-    "maxLength": null,
-    "pattern": null
-  },
-  {
-    "$type": "StringType",
-    "sensitive": false,
-    "minLength": null,
-    "maxLength": null,
-    "pattern": null
-  },
-  {
-    "$type": "StringType",
-    "sensitive": false,
-    "minLength": null,
-    "maxLength": null,
-    "pattern": null
-  },
-  {
-    "$type": "StringType",
-    "sensitive": false,
-    "minLength": null,
-    "maxLength": null,
-    "pattern": null
-  },
-  {
-    "$type": "StringType",
-    "sensitive": false,
-    "minLength": null,
-    "maxLength": null,
-    "pattern": null
-  },
-  {
-    "$type": "StringType",
-    "sensitive": false,
-    "minLength": null,
-    "maxLength": null,
-    "pattern": null
-  },
-  {
-    "$type": "StringType",
-    "sensitive": false,
-    "minLength": null,
-    "maxLength": null,
-    "pattern": null
-  },
-  {
-    "$type": "StringType",
-    "sensitive": false,
-    "minLength": null,
-    "maxLength": null,
-    "pattern": null
   },
   {
     "$type": "StringType",
@@ -685,12 +678,19 @@
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/61"
+        "$ref": "#/73"
       },
       {
-        "$ref": "#/75"
+        "$ref": "#/74"
       }
     ]
+  },
+  {
+    "$type": "StringType",
+    "sensitive": false,
+    "minLength": null,
+    "maxLength": null,
+    "pattern": null
   },
   {
     "$type": "NullType"
@@ -699,7 +699,7 @@
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/12"
+        "$ref": "#/76"
       },
       {
         "$ref": "#/77"
@@ -749,23 +749,16 @@
     ]
   },
   {
-    "$type": "StringType",
-    "sensitive": false,
-    "minLength": null,
-    "maxLength": null,
-    "pattern": null
-  },
-  {
     "$type": "NullType"
   },
   {
     "$type": "UnionType",
     "elements": [
+      {
+        "$ref": "#/29"
+      },
       {
         "$ref": "#/85"
-      },
-      {
-        "$ref": "#/86"
       }
     ]
   },
@@ -783,12 +776,118 @@
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/88"
+        "$ref": "#/87"
       },
       {
-        "$ref": "#/89"
+        "$ref": "#/88"
       }
     ]
+  },
+  {
+    "$type": "ObjectType",
+    "name": "CertificateData",
+    "properties": {
+      "id": {
+        "type": {
+          "$ref": "#/61"
+        },
+        "flags": 2,
+        "description": "Id of the certificate"
+      },
+      "name": {
+        "type": {
+          "$ref": "#/62"
+        },
+        "flags": 2,
+        "description": "Name of the certificate"
+      },
+      "vaultUri": {
+        "type": {
+          "$ref": "#/63"
+        },
+        "flags": 2,
+        "description": "Url of the keyvault containing the certificate"
+      },
+      "version": {
+        "type": {
+          "$ref": "#/64"
+        },
+        "flags": 2,
+        "description": "Version of the certificate"
+      },
+      "x509Thumbprint": {
+        "type": {
+          "$ref": "#/65"
+        },
+        "flags": 2,
+        "description": "Base64 representation of the thumbprint"
+      },
+      "x509ThumbprintString": {
+        "type": {
+          "$ref": "#/66"
+        },
+        "flags": 2,
+        "description": "Decoded base64 representation of the thumbprint"
+      },
+      "tags": {
+        "type": {
+          "$ref": "#/70"
+        },
+        "flags": 2,
+        "description": "Tags of the certificate"
+      },
+      "enabled": {
+        "type": {
+          "$ref": "#/72"
+        },
+        "flags": 2,
+        "description": "Whether the certificate is enabled"
+      },
+      "notBefore": {
+        "type": {
+          "$ref": "#/75"
+        },
+        "flags": 2,
+        "description": "Activation date of the certificate"
+      },
+      "expiresOn": {
+        "type": {
+          "$ref": "#/78"
+        },
+        "flags": 2,
+        "description": "Expiration date of the certificate"
+      },
+      "createdOn": {
+        "type": {
+          "$ref": "#/81"
+        },
+        "flags": 2,
+        "description": "Creation date of the certificate"
+      },
+      "updatedOn": {
+        "type": {
+          "$ref": "#/84"
+        },
+        "flags": 2,
+        "description": "Last update date of the certificate"
+      },
+      "recoverableDays": {
+        "type": {
+          "$ref": "#/86"
+        },
+        "flags": 2,
+        "description": "Number of days before the certificate is purged on a soft-delete"
+      },
+      "recoveryLevel": {
+        "type": {
+          "$ref": "#/89"
+        },
+        "flags": 2,
+        "description": "Recovery level of the certificate"
+      }
+    },
+    "additionalProperties": null,
+    "sensitive": null
   },
   {
     "$type": "NullType"
@@ -797,7 +896,7 @@
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/44"
+        "$ref": "#/90"
       },
       {
         "$ref": "#/91"
@@ -826,131 +925,32 @@
     ]
   },
   {
-    "$type": "ObjectType",
-    "name": "CertificateData",
-    "properties": {
-      "id": {
-        "type": {
-          "$ref": "#/69"
-        },
-        "flags": 2,
-        "description": "Id of the certificate"
-      },
-      "name": {
-        "type": {
-          "$ref": "#/70"
-        },
-        "flags": 2,
-        "description": "Name of the certificate"
-      },
-      "vaultUri": {
-        "type": {
-          "$ref": "#/71"
-        },
-        "flags": 2,
-        "description": "Url of the keyvault containing the certificate"
-      },
-      "version": {
-        "type": {
-          "$ref": "#/72"
-        },
-        "flags": 2,
-        "description": "Version of the certificate"
-      },
-      "x509Thumbprint": {
-        "type": {
-          "$ref": "#/73"
-        },
-        "flags": 2,
-        "description": "Base64 representation of the thumbprint"
-      },
-      "x509ThumbprintString": {
-        "type": {
-          "$ref": "#/74"
-        },
-        "flags": 2,
-        "description": "Decoded base64 representation of the thumbprint"
-      },
-      "tags": {
-        "type": {
-          "$ref": "#/76"
-        },
-        "flags": 2,
-        "description": "Tags of the certificate"
-      },
-      "enabled": {
-        "type": {
-          "$ref": "#/78"
-        },
-        "flags": 2,
-        "description": "Whether the certificate is enabled"
-      },
-      "notBefore": {
-        "type": {
-          "$ref": "#/81"
-        },
-        "flags": 2,
-        "description": "Activation date of the certificate"
-      },
-      "expiresOn": {
-        "type": {
-          "$ref": "#/84"
-        },
-        "flags": 2,
-        "description": "Expiration date of the certificate"
-      },
-      "createdOn": {
-        "type": {
-          "$ref": "#/87"
-        },
-        "flags": 2,
-        "description": "Creation date of the certificate"
-      },
-      "updatedOn": {
-        "type": {
-          "$ref": "#/90"
-        },
-        "flags": 2,
-        "description": "Last update date of the certificate"
-      },
-      "recoverableDays": {
-        "type": {
-          "$ref": "#/92"
-        },
-        "flags": 2,
-        "description": "Number of days before the certificate is purged on a soft-delete"
-      },
-      "recoveryLevel": {
-        "type": {
-          "$ref": "#/95"
-        },
-        "flags": 2,
-        "description": "Recovery level of the certificate"
-      }
-    },
-    "additionalProperties": null,
-    "sensitive": null
-  },
-  {
     "$type": "NullType"
   },
   {
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/96"
+        "$ref": "#/12"
       },
       {
-        "$ref": "#/97"
+        "$ref": "#/96"
       }
     ]
   },
   {
-    "$type": "StringType",
-    "sensitive": false,
-    "minLength": null,
-    "maxLength": null,
-    "pattern": null
+    "$type": "NullType"
+  },
+  {
+    "$type": "UnionType",
+    "elements": [
+      {
+        "$ref": "#/68"
+      },
+      {
+        "$ref": "#/98"
+      }
+    ]
   },
   {
     "$type": "NullType"
@@ -959,7 +959,7 @@
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/99"
+        "$ref": "#/12"
       },
       {
         "$ref": "#/100"
@@ -998,61 +998,61 @@
         "flags": 1,
         "description": "The policy of the certificate"
       },
-      "enabled": {
-        "type": {
-          "$ref": "#/59"
-        },
-        "flags": 0,
-        "description": "TWhether the certificate is enabled on creation"
-      },
-      "tags": {
-        "type": {
-          "$ref": "#/63"
-        },
-        "flags": 0,
-        "description": "The tags of the certificate"
-      },
-      "preserveCertificateOrder": {
-        "type": {
-          "$ref": "#/65"
-        },
-        "flags": 0,
-        "description": "Whether the certificate order is preserved. if false, the leaf certificate will be placed at index 0"
-      },
       "id": {
         "type": {
-          "$ref": "#/66"
+          "$ref": "#/58"
         },
         "flags": 2,
         "description": "The certificate id"
       },
       "keyId": {
         "type": {
-          "$ref": "#/67"
+          "$ref": "#/59"
         },
         "flags": 2,
         "description": "Id of the backing key"
       },
       "secretId": {
         "type": {
-          "$ref": "#/68"
+          "$ref": "#/60"
         },
         "flags": 2,
         "description": "Id of the backing secret"
       },
       "data": {
         "type": {
-          "$ref": "#/98"
+          "$ref": "#/92"
         },
         "flags": 2,
         "description": "The certificate data."
       },
       "cer": {
         "type": {
-          "$ref": "#/101"
+          "$ref": "#/95"
         },
         "flags": 2,
         "description": "The public key content in base64 format"
+      },
+      "enabled": {
+        "type": {
+          "$ref": "#/97"
+        },
+        "flags": 0,
+        "description": "TWhether the certificate is enabled on creation"
+      },
+      "tags": {
+        "type": {
+          "$ref": "#/99"
+        },
+        "flags": 0,
+        "description": "The tags of the certificate"
+      },
+      "preserveCertificateOrder": {
+        "type": {
+          "$ref": "#/101"
+        },
+        "flags": 0,
+        "description": "Whether the certificate order is preserved. if false, the leaf certificate will be placed at index 0"
       }
     },
     "additionalProperties": null,
@@ -1333,6 +1333,62 @@
     "pattern": null
   },
   {
+    "$type": "StringType",
+    "sensitive": false,
+    "minLength": null,
+    "maxLength": null,
+    "pattern": null
+  },
+  {
+    "$type": "StringType",
+    "sensitive": false,
+    "minLength": null,
+    "maxLength": null,
+    "pattern": null
+  },
+  {
+    "$type": "StringType",
+    "sensitive": false,
+    "minLength": null,
+    "maxLength": null,
+    "pattern": null
+  },
+  {
+    "$type": "NullType"
+  },
+  {
+    "$type": "UnionType",
+    "elements": [
+      {
+        "$ref": "#/90"
+      },
+      {
+        "$ref": "#/134"
+      }
+    ]
+  },
+  {
+    "$type": "StringType",
+    "sensitive": false,
+    "minLength": null,
+    "maxLength": null,
+    "pattern": null
+  },
+  {
+    "$type": "NullType"
+  },
+  {
+    "$type": "UnionType",
+    "elements": [
+      {
+        "$ref": "#/136"
+      },
+      {
+        "$ref": "#/137"
+      }
+    ]
+  },
+  {
     "$type": "NullType"
   },
   {
@@ -1342,7 +1398,7 @@
         "$ref": "#/12"
       },
       {
-        "$ref": "#/131"
+        "$ref": "#/139"
       }
     ]
   },
@@ -1353,10 +1409,10 @@
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/61"
+        "$ref": "#/68"
       },
       {
-        "$ref": "#/133"
+        "$ref": "#/141"
       }
     ]
   },
@@ -1368,62 +1424,6 @@
     "elements": [
       {
         "$ref": "#/12"
-      },
-      {
-        "$ref": "#/135"
-      }
-    ]
-  },
-  {
-    "$type": "StringType",
-    "sensitive": false,
-    "minLength": null,
-    "maxLength": null,
-    "pattern": null
-  },
-  {
-    "$type": "StringType",
-    "sensitive": false,
-    "minLength": null,
-    "maxLength": null,
-    "pattern": null
-  },
-  {
-    "$type": "StringType",
-    "sensitive": false,
-    "minLength": null,
-    "maxLength": null,
-    "pattern": null
-  },
-  {
-    "$type": "NullType"
-  },
-  {
-    "$type": "UnionType",
-    "elements": [
-      {
-        "$ref": "#/96"
-      },
-      {
-        "$ref": "#/140"
-      }
-    ]
-  },
-  {
-    "$type": "StringType",
-    "sensitive": false,
-    "minLength": null,
-    "maxLength": null,
-    "pattern": null
-  },
-  {
-    "$type": "NullType"
-  },
-  {
-    "$type": "UnionType",
-    "elements": [
-      {
-        "$ref": "#/142"
       },
       {
         "$ref": "#/143"
@@ -1476,61 +1476,61 @@
         "flags": 1,
         "description": "The policy of the certificate"
       },
-      "enabled": {
-        "type": {
-          "$ref": "#/132"
-        },
-        "flags": 0,
-        "description": "TWhether the certificate is enabled on creation"
-      },
-      "tags": {
-        "type": {
-          "$ref": "#/134"
-        },
-        "flags": 0,
-        "description": "The tags of the certificate"
-      },
-      "preserveCertificateOrder": {
-        "type": {
-          "$ref": "#/136"
-        },
-        "flags": 0,
-        "description": "Whether the certificate order is preserved. if false, the leaf certificate will be placed at index 0"
-      },
       "id": {
         "type": {
-          "$ref": "#/137"
+          "$ref": "#/131"
         },
         "flags": 2,
         "description": "The certificate id"
       },
       "keyId": {
         "type": {
-          "$ref": "#/138"
+          "$ref": "#/132"
         },
         "flags": 2,
         "description": "Id of the backing key"
       },
       "secretId": {
         "type": {
-          "$ref": "#/139"
+          "$ref": "#/133"
         },
         "flags": 2,
         "description": "Id of the backing secret"
       },
       "data": {
         "type": {
-          "$ref": "#/141"
+          "$ref": "#/135"
         },
         "flags": 2,
         "description": "The certificate data."
       },
       "cer": {
         "type": {
-          "$ref": "#/144"
+          "$ref": "#/138"
         },
         "flags": 2,
         "description": "The public key content in base64 format"
+      },
+      "enabled": {
+        "type": {
+          "$ref": "#/140"
+        },
+        "flags": 0,
+        "description": "TWhether the certificate is enabled on creation"
+      },
+      "tags": {
+        "type": {
+          "$ref": "#/142"
+        },
+        "flags": 0,
+        "description": "The tags of the certificate"
+      },
+      "preserveCertificateOrder": {
+        "type": {
+          "$ref": "#/144"
+        },
+        "flags": 0,
+        "description": "Whether the certificate order is preserved. if false, the leaf certificate will be placed at index 0"
       }
     },
     "additionalProperties": null,
@@ -1849,55 +1849,6 @@
     "value": "Pem"
   },
   {
-    "$type": "NullType"
-  },
-  {
-    "$type": "UnionType",
-    "elements": [
-      {
-        "$ref": "#/12"
-      },
-      {
-        "$ref": "#/173"
-      }
-    ]
-  },
-  {
-    "$type": "NullType"
-  },
-  {
-    "$type": "UnionType",
-    "elements": [
-      {
-        "$ref": "#/12"
-      },
-      {
-        "$ref": "#/175"
-      }
-    ]
-  },
-  {
-    "$type": "StringType",
-    "sensitive": false,
-    "minLength": null,
-    "maxLength": null,
-    "pattern": null
-  },
-  {
-    "$type": "NullType"
-  },
-  {
-    "$type": "UnionType",
-    "elements": [
-      {
-        "$ref": "#/177"
-      },
-      {
-        "$ref": "#/178"
-      }
-    ]
-  },
-  {
     "$type": "StringLiteralType",
     "value": "Ec"
   },
@@ -1925,10 +1876,10 @@
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/184"
+        "$ref": "#/177"
       },
       {
-        "$ref": "#/185"
+        "$ref": "#/178"
       }
     ]
   },
@@ -1939,10 +1890,10 @@
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/16"
+        "$ref": "#/22"
       },
       {
-        "$ref": "#/187"
+        "$ref": "#/180"
       }
     ]
   },
@@ -1960,10 +1911,10 @@
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/189"
+        "$ref": "#/182"
       },
       {
-        "$ref": "#/190"
+        "$ref": "#/183"
       }
     ]
   },
@@ -1974,7 +1925,56 @@
     "$type": "UnionType",
     "elements": [
       {
-        "$ref": "#/44"
+        "$ref": "#/29"
+      },
+      {
+        "$ref": "#/185"
+      }
+    ]
+  },
+  {
+    "$type": "NullType"
+  },
+  {
+    "$type": "UnionType",
+    "elements": [
+      {
+        "$ref": "#/12"
+      },
+      {
+        "$ref": "#/187"
+      }
+    ]
+  },
+  {
+    "$type": "NullType"
+  },
+  {
+    "$type": "UnionType",
+    "elements": [
+      {
+        "$ref": "#/12"
+      },
+      {
+        "$ref": "#/189"
+      }
+    ]
+  },
+  {
+    "$type": "StringType",
+    "sensitive": false,
+    "minLength": null,
+    "maxLength": null,
+    "pattern": null
+  },
+  {
+    "$type": "NullType"
+  },
+  {
+    "$type": "UnionType",
+    "elements": [
+      {
+        "$ref": "#/191"
       },
       {
         "$ref": "#/192"
@@ -1992,27 +1992,6 @@
         "flags": 1,
         "description": "The content type of the certificate. Set to Pkcs12 when Cer contains your raw PKCS#12/PFX bytes, or to Pem when Cer contains your ASCII PEM-encoded bytes. If not specified, Pkcs12 is assumed."
       },
-      "enabled": {
-        "type": {
-          "$ref": "#/174"
-        },
-        "flags": 0,
-        "description": "If the certificate is enabled"
-      },
-      "subjectAlternativeNames": {
-        "type": {
-          "$ref": "#/24"
-        },
-        "flags": 2,
-        "description": "The subject alternative names of the certificate"
-      },
-      "certificateTransparency": {
-        "type": {
-          "$ref": "#/176"
-        },
-        "flags": 0,
-        "description": "Gets or sets a value indicating whether a certificate should be published to the certificate transparency list when created."
-      },
       "exportable": {
         "type": {
           "$ref": "#/12"
@@ -2020,40 +1999,19 @@
         "flags": 1,
         "description": "Whether the certificate is exportable or not"
       },
-      "certificateType": {
-        "type": {
-          "$ref": "#/179"
-        },
-        "flags": 0,
-        "description": "The type of the certificate"
-      },
       "keyType": {
         "type": {
-          "$ref": "#/34"
+          "$ref": "#/17"
         },
         "flags": 1,
         "description": "Gets or sets the type of backing key to be generated when issuing new certificates."
       },
       "keySize": {
         "type": {
-          "$ref": "#/186"
+          "$ref": "#/179"
         },
         "flags": 1,
         "description": "The size of the RSA key. Must either be 2048 or 4096"
-      },
-      "keyUsage": {
-        "type": {
-          "$ref": "#/39"
-        },
-        "flags": 2,
-        "description": "The allowed usages of the key of the certificate"
-      },
-      "lifetimeActions": {
-        "type": {
-          "$ref": "#/49"
-        },
-        "flags": 0,
-        "description": "The lifetime actions"
       },
       "reuseKey": {
         "type": {
@@ -2064,24 +2022,66 @@
       },
       "enhancedKeyUsages": {
         "type": {
-          "$ref": "#/188"
+          "$ref": "#/181"
         },
         "flags": 2,
         "description": "The allowed enhanced key usages of the certificate"
       },
       "keyCurveName": {
         "type": {
-          "$ref": "#/191"
+          "$ref": "#/184"
         },
         "flags": 0,
         "description": "Gets or sets the curve which back an Elliptic Curve (EC) key."
       },
       "validityInMonths": {
         "type": {
-          "$ref": "#/193"
+          "$ref": "#/186"
         },
         "flags": 0,
         "description": "Validity of the certificate in months"
+      },
+      "enabled": {
+        "type": {
+          "$ref": "#/188"
+        },
+        "flags": 0,
+        "description": "If the certificate is enabled"
+      },
+      "subjectAlternativeNames": {
+        "type": {
+          "$ref": "#/40"
+        },
+        "flags": 2,
+        "description": "The subject alternative names of the certificate"
+      },
+      "certificateTransparency": {
+        "type": {
+          "$ref": "#/190"
+        },
+        "flags": 0,
+        "description": "Gets or sets a value indicating whether a certificate should be published to the certificate transparency list when created."
+      },
+      "certificateType": {
+        "type": {
+          "$ref": "#/193"
+        },
+        "flags": 0,
+        "description": "The type of the certificate"
+      },
+      "keyUsage": {
+        "type": {
+          "$ref": "#/47"
+        },
+        "flags": 2,
+        "description": "The allowed usages of the key of the certificate"
+      },
+      "lifetimeActions": {
+        "type": {
+          "$ref": "#/56"
+        },
+        "flags": 0,
+        "description": "The lifetime actions"
       }
     },
     "additionalProperties": null,
@@ -2147,7 +2147,7 @@
     "sensitive": false,
     "minLength": null,
     "maxLength": null,
-    "pattern": "^https:\\/\\/[a-zA-Z0-9\\-\\.]\u002B(\\/\\S*)?$"
+    "pattern": null
   },
   {
     "$type": "ObjectType",

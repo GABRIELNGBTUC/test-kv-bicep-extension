@@ -10,6 +10,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gabrielngbtuc.Azure.Bicep.K
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gabrielngbtuc.Azure.Bicep.Keyvault.UnitTests", "Gabrielngbtuc.Azure.Bicep.Keyvault.UnitTests\Gabrielngbtuc.Azure.Bicep.Keyvault.UnitTests.csproj", "{BE20E270-2AA3-49FA-92DE-EE834FB560D3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gabrielngbtuc.Azure.Bicep.Keyvault.CLI.UnitTests", "Gabrielngbtuc.Azure.Bicep.Keyvault.CLI.UnitTests\Gabrielngbtuc.Azure.Bicep.Keyvault.CLI.UnitTests.csproj", "{866E696C-256F-4F4E-A1B0-765F5F8B4C3D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,5 +38,9 @@ Global
 		{BE20E270-2AA3-49FA-92DE-EE834FB560D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BE20E270-2AA3-49FA-92DE-EE834FB560D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BE20E270-2AA3-49FA-92DE-EE834FB560D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{866E696C-256F-4F4E-A1B0-765F5F8B4C3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{866E696C-256F-4F4E-A1B0-765F5F8B4C3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{866E696C-256F-4F4E-A1B0-765F5F8B4C3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{866E696C-256F-4F4E-A1B0-765F5F8B4C3D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

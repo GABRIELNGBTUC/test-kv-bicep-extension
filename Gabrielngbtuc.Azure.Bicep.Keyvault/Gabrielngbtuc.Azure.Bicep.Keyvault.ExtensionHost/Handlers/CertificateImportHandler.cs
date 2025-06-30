@@ -1,4 +1,5 @@
-﻿using System.Text.Json;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Text.Json;
 using Azure;
 using Bicep.Local.Extension.Protocol;
 using Gabrielngbtuc.Azure.Bicep.Keyvault.ExtensionHost.Helpers;
@@ -79,6 +80,7 @@ public class CertificateImportHandler : IResourceHandler
         throw new NotImplementedException();
     }
 
+    [ExcludeFromCodeCoverage]
     public Task<LocalExtensionOperationResponse> Get(ResourceReference request, CancellationToken cancellationToken)
         => RequestHelper.HandleRequest(request.Config, async client =>
         {
@@ -92,16 +94,15 @@ public class CertificateImportHandler : IResourceHandler
 
             var bicepCertificate = new Certificate(name, azureCertificate.Value.Policy.IssuerName,
                 azureCertificate.Value.Policy.Subject,
-                CertificateHandler.MapToCertificatePolicy(azureCertificate.Value.Policy), azureCertificate.Value.Properties.Enabled,
-                azureCertificate.Value.Properties.Tags.ToDictionary(), azureCertificate.Value.PreserveCertificateOrder,
-                azureCertificate.Value.Id.ToString(), azureCertificate.Value.KeyId.ToString(),
-                azureCertificate.Value.SecretId.ToString(),
-                JsonSerializer.Deserialize<CertificateData>(serializedProperties, Program.JsonSerializerOptions),
-                Convert.ToBase64String(azureCertificate.Value.Cer)
-            );
+                CertificateHandler.MapToCertificatePolicy(azureCertificate.Value.Policy),
+                Id: azureCertificate.Value.Id.ToString(), KeyId: azureCertificate.Value.KeyId.ToString(),
+                SecretId: azureCertificate.Value.SecretId.ToString(),
+                Data: JsonSerializer.Deserialize<CertificateData>(serializedProperties, Program.JsonSerializerOptions),
+                Cer: Convert.ToBase64String(azureCertificate.Value.Cer), Enabled: azureCertificate.Value.Properties.Enabled, Tags: azureCertificate.Value.Properties.Tags.ToDictionary(), PreserveCertificateOrder: azureCertificate.Value.PreserveCertificateOrder);
             return RequestHelper.CreateSuccessResponse(request, bicepCertificate, request.Identifiers);
         });
 
+    [ExcludeFromCodeCoverage]
     public Task<LocalExtensionOperationResponse> Delete(ResourceReference request, CancellationToken cancellationToken)
     {
         throw new NotImplementedException();

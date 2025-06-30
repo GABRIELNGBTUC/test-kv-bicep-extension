@@ -34,4 +34,4 @@ public record CertificateImport(
     [property: TypeAnnotation("The certificate data.", ObjectTypePropertyFlags.ReadOnly)]
     CertificateData? Data,
     [property: TypeAnnotation("The public key content in base64 format", ObjectTypePropertyFlags.ReadOnly)]
-    string? Cer): Certificate(Name, IssuerName, Subject, policy, Enabled, Tags, PreserveCertificateOrder, Id, KeyId, SecretId, Data, Cer);
+    string? Cer): Certificate(Name, IssuerName, Subject, policy, Id: Id, KeyId: KeyId, SecretId: SecretId, Data: Data, Cer: Cer, Enabled: Enabled, Tags: Tags, PreserveCertificateOrder: PreserveCertificateOrder);

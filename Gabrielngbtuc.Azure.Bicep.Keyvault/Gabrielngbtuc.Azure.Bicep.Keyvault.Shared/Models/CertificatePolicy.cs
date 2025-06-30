@@ -7,46 +7,47 @@ namespace Gabrielngbtuc.Azure.Bicep.Keyvault.Shared.Models;
 
 [BicepSerializableType]
 public record CertificatePolicy(
-    [property: TypeAnnotation("The content type of the certificate. Set to Pkcs12 when Cer contains your raw PKCS#12/PFX bytes, or to Pem when Cer contains your ASCII PEM-encoded bytes. If not specified, Pkcs12 is assumed.",
-        ObjectTypePropertyFlags.Required),
-    JsonConverter(typeof(BicepEnumConverter<CertificateContentType>))]
+    [property: TypeAnnotation(
+        "The content type of the certificate. Set to Pkcs12 when Cer contains your raw PKCS#12/PFX bytes, or to Pem when Cer contains your ASCII PEM-encoded bytes. If not specified, Pkcs12 is assumed.",
+        ObjectTypePropertyFlags.Required)]
+    [property: JsonConverter(typeof(BicepEnumConverter<CertificateContentType>))]
     CertificateContentType ContentType,
-    [property: TypeAnnotation("If the certificate is enabled")]
-    bool? Enabled,
-    [property: TypeAnnotation("The subject alternative names of the certificate", ObjectTypePropertyFlags.ReadOnly)]
-    SubjectAlternativeNamesData? SubjectAlternativeNames,
-    [property: TypeAnnotation("Gets or sets a value indicating whether a certificate should be published to the certificate transparency list when created.")]
-    bool? CertificateTransparency,
     [property: TypeAnnotation("Whether the certificate is exportable or not",
         ObjectTypePropertyFlags.Required)]
     bool Exportable,
-    [property: TypeAnnotation("The type of the certificate"),
-    BicepNullableType]
-    string? CertificateType,
     [property: TypeAnnotation("Gets or sets the type of backing key to be generated when issuing new certificates.",
-        ObjectTypePropertyFlags.Required),
-    JsonConverter(typeof(BicepEnumConverter<CertificateKeyType>))]
+        ObjectTypePropertyFlags.Required)]
+    [property: JsonConverter(typeof(BicepEnumConverter<CertificateKeyType>))]
     CertificateKeyType KeyType,
-    [property: TypeAnnotation("The size of the RSA key. Must either be 2048 or 4096", ObjectTypePropertyFlags.Required),
-    BicepStringLiteralUnion(false, "2048", "4096"),
-    JsonConverter(typeof(StringToIntJsonConverter))]
+    [property: TypeAnnotation("The size of the RSA key. Must either be 2048 or 4096", ObjectTypePropertyFlags.Required)]
+    [property: BicepStringLiteralUnion(false, "2048", "4096")]
+    [property: JsonConverter(typeof(StringToIntJsonConverter))]
     int KeySize,
-    [property: TypeAnnotation("The allowed usages of the key of the certificate", ObjectTypePropertyFlags.ReadOnly),
-    JsonConverter(typeof(BicepEnumArrayConverter<KeyUsageType>))]
-    KeyUsageType[]? KeyUsage,
-    [property: TypeAnnotation("The lifetime actions")]
-    LifetimeAction? LifetimeActions,
     [property: TypeAnnotation("Whether the key should be reused when rotating certificates",
         ObjectTypePropertyFlags.Required)]
     bool ReuseKey,
     [property: TypeAnnotation("The allowed enhanced key usages of the certificate", ObjectTypePropertyFlags.ReadOnly)]
-    string[]? EnhancedKeyUsages,
-    [property: TypeAnnotation("Gets or sets the curve which back an Elliptic Curve (EC) key."),
-               BicepNullableType]
-    string? KeyCurveName,
+    string[]? EnhancedKeyUsages = null,
+    [property: TypeAnnotation("Gets or sets the curve which back an Elliptic Curve (EC) key.")]
+    [property: BicepNullableType]
+    string? KeyCurveName = null,
     [property: TypeAnnotation("Validity of the certificate in months")]
-    int? ValidityInMonths
-);
+    int? ValidityInMonths = null,
+    [property: TypeAnnotation("If the certificate is enabled")]
+    bool? Enabled = null,
+    [property: TypeAnnotation("The subject alternative names of the certificate", ObjectTypePropertyFlags.ReadOnly)]
+    SubjectAlternativeNamesData? SubjectAlternativeNames = null,
+    [property: TypeAnnotation(
+        "Gets or sets a value indicating whether a certificate should be published to the certificate transparency list when created.")]
+    bool? CertificateTransparency = null,
+    [property: TypeAnnotation("The type of the certificate")]
+    [property: BicepNullableType]
+    string? CertificateType = null,
+    [property: TypeAnnotation("The allowed usages of the key of the certificate", ObjectTypePropertyFlags.ReadOnly)]
+    [property: JsonConverter(typeof(BicepEnumArrayConverter<KeyUsageType>))]
+    KeyUsageType[]? KeyUsage = null,
+    [property: TypeAnnotation("The lifetime actions")]
+    LifetimeAction? LifetimeActions = null);
 
 public record SubjectAlternativeNamesData(
     [property: TypeAnnotation("The list of domains")]

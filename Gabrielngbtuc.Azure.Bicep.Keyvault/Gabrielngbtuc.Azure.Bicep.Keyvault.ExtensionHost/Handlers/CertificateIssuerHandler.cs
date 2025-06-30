@@ -101,9 +101,14 @@ public class CertificateIssuerHandler : IResourceHandler
         });
 
     public Task<LocalExtensionOperationResponse> Delete(ResourceReference request, CancellationToken cancellationToken)
-    {
-        throw new NotImplementedException();
-    }
+        => RequestHelper.HandleRequest(request.Config, async clientContainer =>
+        {
+            var name = RequestHelper.GetIdentifierData(request, nameof(CertificateIssuer.Name))?.ToString();
+            
+            await clientContainer.CertificateClient.DeleteIssuerAsync(name, cancellationToken: cancellationToken);
+            
+            return RequestHelper.CreateSuccessResponse(request,  request, new Identifiers(name));
+        });
 
     public static CertificateIssuerCredential MapToCertificateIssuerCredentials(AzureCertificateNamespace.CertificateIssuer issuer)
     {

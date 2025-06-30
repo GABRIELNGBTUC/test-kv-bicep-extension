@@ -29,7 +29,7 @@ public static class RequestHelper
         }
         catch (RequestFailedException exception)
         {
-            return CreateErrorResponse("AzureRequestException", exception.Message,
+            return CreateErrorResponse(nameof(RequestFailedException), exception.Message,
             [
                 new ErrorDetail(exception.Status.ToString(), configuration.KeyVaultUrl, exception.Message)
             ]);

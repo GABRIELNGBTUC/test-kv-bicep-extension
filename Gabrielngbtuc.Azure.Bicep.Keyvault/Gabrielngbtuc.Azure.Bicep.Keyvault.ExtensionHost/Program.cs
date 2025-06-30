@@ -1,4 +1,5 @@
-﻿using System.Text.Json;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Text.Json;
 using Bicep.Local.Extension;
 using Bicep.Local.Extension.Protocol;
 using Bicep.Local.Extension.Rpc;
@@ -10,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace Gabrielngbtuc.Azure.Bicep.Keyvault.ExtensionHost;
 
+[ExcludeFromCodeCoverage]
 public static class Program
 {
     public static readonly JsonSerializerOptions JsonSerializerOptions =
@@ -27,6 +29,7 @@ public static class Program
         .AddHandler(new CertificateContactsHandler());
 }
 
+[ExcludeFromCodeCoverage]
 public class KestrelProviderExtension : ProviderExtension
 {
     protected override async Task RunServer(ConnectionOptions connectionOptions, ResourceDispatcher dispatcher,

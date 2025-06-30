@@ -1,4 +1,5 @@
-﻿using System.Text.Json;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Text.Json;
 using Azure;
 using Bicep.Local.Extension.Protocol;
 using Gabrielngbtuc.Azure.Bicep.Keyvault.ExtensionHost.Helpers;
@@ -11,7 +12,7 @@ public class CertificateHandler : IResourceHandler
 {
     public string ResourceType => nameof(Certificate);
 
-    private record Identifiers(
+    public record Identifiers(
         string? Name,
         string? Version);
 
@@ -52,8 +53,7 @@ public class CertificateHandler : IResourceHandler
                 await result.WaitForCompletionAsync(cancellationToken);
                 Console.WriteLine("Operation fully completed");
                 properties = MapToCertificate(properties,
-                        JsonSerializer.Deserialize<AzureCertificateNamespace.KeyVaultCertificate>(
-                            JsonSerializer.Serialize(result.Value))) with
+                        result.Value) with
                     {
                         policy = MapToCertificatePolicy(result.Value.Policy)
                     };
@@ -145,16 +145,15 @@ public class CertificateHandler : IResourceHandler
 
             var bicepCertificate = new Certificate(name, azureCertificate.Value.Policy.IssuerName,
                 azureCertificate.Value.Policy.Subject,
-                MapToCertificatePolicy(azureCertificate.Value.Policy), azureCertificate.Value.Properties.Enabled,
-                azureCertificate.Value.Properties.Tags.ToDictionary(), azureCertificate.Value.PreserveCertificateOrder,
-                azureCertificate.Value.Id.ToString(), azureCertificate.Value.KeyId.ToString(),
-                azureCertificate.Value.SecretId.ToString(),
-                JsonSerializer.Deserialize<CertificateData>(serializedProperties, Program.JsonSerializerOptions),
-                Convert.ToBase64String(azureCertificate.Value.Cer)
-            );
+                MapToCertificatePolicy(azureCertificate.Value.Policy),
+                Id: azureCertificate.Value.Id.ToString(), KeyId: azureCertificate.Value.KeyId.ToString(),
+                SecretId: azureCertificate.Value.SecretId.ToString(),
+                Data: JsonSerializer.Deserialize<CertificateData>(serializedProperties, Program.JsonSerializerOptions),
+                Cer: Convert.ToBase64String(azureCertificate.Value.Cer), Enabled: azureCertificate.Value.Properties.Enabled, Tags: azureCertificate.Value.Properties.Tags.ToDictionary(), PreserveCertificateOrder: azureCertificate.Value.PreserveCertificateOrder);
             return RequestHelper.CreateSuccessResponse(request, bicepCertificate, request.Identifiers);
         });
 
+    [ExcludeFromCodeCoverage]
     public Task<LocalExtensionOperationResponse> Delete(ResourceReference request, CancellationToken cancellationToken)
     {
         throw new NotImplementedException();
@@ -186,27 +185,24 @@ public class CertificateHandler : IResourceHandler
                 EnumHelper.GetEnumFromDisplayName<CertificatePolicyActionType>(policy.LifetimeActions[0].Action.ToString()),
                 policy.LifetimeActions[0].LifetimePercentage,
                 policy.LifetimeActions[0].DaysBeforeExpiry) : null;
-        return new CertificatePolicy(
-            EnumHelper.GetEnumFromDisplayName<CertificateContentType>(policy.ContentType.Value.ToString()),
-            policy.Enabled,
-            KeyUsage: policy.KeyUsage.Select(ku => EnumHelper.GetEnumFromDisplayName<KeyUsageType>(ku.ToString())).ToArray(),
-            EnhancedKeyUsages: policy.EnhancedKeyUsage.ToArray(),
-            KeyCurveName: policy.KeyCurveName.ToString(),
-            Exportable: policy.Exportable.Value,
-            CertificateTransparency: policy.CertificateTransparency,
-            CertificateType: policy.CertificateType,
-            KeySize: policy.KeySize.Value,
-            KeyType: EnumHelper.GetEnumFromDisplayName<CertificateKeyType>(policy.KeyType.Value.ToString()),
-            ReuseKey: policy.ReuseKey.Value,
-            ValidityInMonths: policy.ValidityInMonths.Value,
+        var contentType =
+            EnumHelper.GetEnumFromDisplayName<CertificateContentType>(policy.ContentType.Value.ToString());
+        var keyType = EnumHelper.GetEnumFromDisplayName<CertificateKeyType>(policy.KeyType.Value.ToString());
+        return new CertificatePolicy(contentType, 
+            Exportable: policy.Exportable ?? false, 
+            KeyType: keyType, 
+            KeySize: policy.KeySize.Value, 
+            ReuseKey: policy.ReuseKey.Value, 
+            EnhancedKeyUsages: policy.EnhancedKeyUsage.ToArray(), 
+            KeyCurveName: policy.KeyCurveName.Value.ToString(), 
+            ValidityInMonths: policy.ValidityInMonths.Value, 
+            Enabled: policy.Enabled, 
             SubjectAlternativeNames: policy.SubjectAlternativeNames is null
                 ? null
                 : new SubjectAlternativeNamesData(policy.SubjectAlternativeNames.DnsNames.ToArray(),
                     policy.SubjectAlternativeNames.Emails.ToArray(),
                     policy.SubjectAlternativeNames.UserPrincipalNames.ToArray()
-                ),
-            LifetimeActions: lifetimeAction
-            );
+                ), CertificateTransparency: policy.CertificateTransparency, CertificateType: policy.CertificateType, KeyUsage: policy.KeyUsage.Select(ku => EnumHelper.GetEnumFromDisplayName<KeyUsageType>(ku.ToString())).ToArray(), LifetimeActions: lifetimeAction);
     }
 
     public static AzureCertificateNamespace.CertificatePolicy MapToAzureCertificatePolicy(Certificate certificate)

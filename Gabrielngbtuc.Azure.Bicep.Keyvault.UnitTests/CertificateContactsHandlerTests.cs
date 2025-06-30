@@ -9,13 +9,11 @@ namespace Gabrielngbtuc.Azure.Bicep.Keyvault.UnitTests;
 public class CertificateContactsHandlerTests : TestContainerClass
 {
     public static CertificateContactsHandler handler = new();
-    
+
     [TestMethod]
     public async Task TestDelete()
     {
-        var container = GetKeyvaultEmulatorContainer();
-        await container.StartAsync();
-        try
+        await RunContainerTest(async _ =>
         {
             Contact contactToMatch = new Contact("gettest@gmail.com", "GetTest", "1234567890");
             var newContact = new CertificateContacts([
@@ -40,27 +38,18 @@ public class CertificateContactsHandlerTests : TestContainerClass
                 (getResponse?.Resource?.Properties).Deserialize<CertificateContacts>(
                     HandlerHelper.JsonSerializerOptions);
             //Keyvault emulator throws when no element is found for the get operation
-            Assert.IsTrue(getResponse != null && getResponse.ErrorData?.Error.Details != null && getResponse.ErrorData.Error.Details.Any(d => d.Code == "400"));
-        }
-        catch
-        {
-            throw;
-        }
-        finally
-        {
-            await container.StopAsync();
-            await container.DisposeAsync();
-        }
+            Assert.IsTrue(getResponse != null && getResponse.ErrorData?.Error.Details != null &&
+                          getResponse.ErrorData.Error.Details.Any(d => d.Code == "400"));
+        });
     }
-    
+
     [TestMethod]
     public async Task TestUpdate()
     {
-        var container = GetKeyvaultEmulatorContainer();
-        await container.StartAsync();
-        try
+        await RunContainerTest(async _ =>
         {
-            Contact[] contactsToMatch = [
+            Contact[] contactsToMatch =
+            [
                 new Contact("gettest@gmail.com", "GetTest", "1234567890"),
                 new Contact("gettest2@gmail.com", "GetTest2", "1234567890")
             ];
@@ -81,26 +70,15 @@ public class CertificateContactsHandlerTests : TestContainerClass
             Assert.IsNotNull(contactsResponse);
             Assert.IsTrue(
                 contactsResponse.Contacts.All(c => contactsToMatch.Any(c2 => c2 == c))
-                );
-        }
-        catch
-        {
-            throw;
-        }
-        finally
-        {
-            await container.StopAsync();
-            await container.DisposeAsync();
-        }
+            );
+        });
     }
-    
-    
+
+
     [TestMethod]
     public async Task TestGet()
     {
-        var container = GetKeyvaultEmulatorContainer();
-        await container.StartAsync();
-        try
+        await RunContainerTest(async _ =>
         {
             Contact contactToMatch = new Contact("gettest@gmail.com", "GetTest", "1234567890");
             var newContact = new CertificateContacts([
@@ -121,18 +99,23 @@ public class CertificateContactsHandlerTests : TestContainerClass
                     HandlerHelper.JsonSerializerOptions);
 
             Assert.IsNotNull(contactsResponse);
-            Assert.IsTrue( contactsResponse.Contacts.Any(c => c == contactToMatch));
-        }
-        catch
-        {
-            throw;
-        }
-        finally
-        {
-            await container.StopAsync();
-            await container.DisposeAsync();
-        }
+            Assert.IsTrue(contactsResponse.Contacts.Any(c => c == contactToMatch));
+        });
     }
-    
-    
+
+    [TestMethod]
+
+    public async Task ShouldNotAllowEmptyContacts()
+    {
+        await RunContainerTest(async _ =>
+        {
+            var result = await handler.CreateOrUpdate(
+                HandlerHelper.GetResourceSpecification(new CertificateContacts([])),
+                CancellationToken.None
+            );
+            
+            Assert.IsTrue(result.ErrorData?.Error.Details != null &&
+                          result.ErrorData.Error.Code == nameof(RequestFailedException));
+        });
+    }
 }
