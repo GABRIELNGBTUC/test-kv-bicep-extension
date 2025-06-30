@@ -27,7 +27,7 @@ jobs:
       run: dotnet restore
     - name: Build
       run: dotnet build --no-restore
-    - name: Install SSL Certificates
+    - name: Install SSL Certificates and Test
       run: |
         dotnet dev-certs https --trust
         echo Creating .crt and .pfx to be used in emulator container
@@ -47,5 +47,4 @@ jobs:
         echo Created emulator.pfx with password emulator. You must now install these certificates locally as a Trusted Root CA Authority.
         sudo cp emulator.crt /usr/local/share/ca-certificates/emulator.crt 
         sudo update-ca-certificates
-    - name: Test
-      run: dotnet test --no-build --verbosity normal
+        dotnet test -c Debug --no-build --verbosity normal
