@@ -28,7 +28,7 @@ public record Certificate(
     [property: TypeAnnotation("TWhether the certificate is enabled on creation")]
     bool? Enabled = null,
     [property: TypeAnnotation("The tags of the certificate")]
-    Dictionary<string, string>? Tags = null,
+    Dictionary<string, string> Tags = default,
     [property: TypeAnnotation(
         "Whether the certificate order is preserved. if false, the leaf certificate will be placed at index 0")]
     bool? PreserveCertificateOrder = null

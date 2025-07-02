@@ -95,7 +95,8 @@ public class CertificateHandlerTests : TestContainerClass
                 ),
                 null,
                 null,
-                null
+                null,
+                Tags: new Dictionary<string, string> { { "test", "test" } }
             );
             await handler.CreateOrUpdate(
                 HandlerHelper.GetResourceSpecification(certificateToRetrieve),
@@ -106,7 +107,7 @@ public class CertificateHandlerTests : TestContainerClass
                 HandlerHelper.GetResourceSpecification(certificateToRetrieve
                     with
                     {
-                        policy = certificateToRetrieve.policy with { Exportable = true }
+                        Enabled = false
                     }
                 ),
                 CancellationToken.None
@@ -118,7 +119,7 @@ public class CertificateHandlerTests : TestContainerClass
                     HandlerHelper.JsonSerializerOptions
                 );
             Assert.IsNotNull(certificateResponse);
-            Assert.IsTrue(certificateResponse.policy.Exportable);
+            Assert.IsFalse(certificateResponse.Enabled);
             Assert.IsNotNull(certificateResponse.Cer);
         });
     }

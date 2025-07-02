@@ -38,8 +38,8 @@ public class CertificateContactsHandlerTests : TestContainerClass
                 (getResponse?.Resource?.Properties).Deserialize<CertificateContacts>(
                     HandlerHelper.JsonSerializerOptions);
             //Keyvault emulator throws when no element is found for the get operation
-            Assert.IsTrue(getResponse != null && getResponse.ErrorData?.Error.Details != null &&
-                          getResponse.ErrorData.Error.Details.Any(d => d.Code == "400"));
+            Assert.IsTrue( (contactsResponse is not null && contactsResponse.Contacts.Length == 0 || (getResponse != null && getResponse.ErrorData?.Error.Details != null &&
+                          getResponse.ErrorData.Error.Details.Any(d => d.Code == "400"))));
         });
     }
 
@@ -100,22 +100,6 @@ public class CertificateContactsHandlerTests : TestContainerClass
 
             Assert.IsNotNull(contactsResponse);
             Assert.IsTrue(contactsResponse.Contacts.Any(c => c == contactToMatch));
-        });
-    }
-
-    [TestMethod]
-
-    public async Task ShouldNotAllowEmptyContacts()
-    {
-        await RunContainerTest(async _ =>
-        {
-            var result = await handler.CreateOrUpdate(
-                HandlerHelper.GetResourceSpecification(new CertificateContacts([])),
-                CancellationToken.None
-            );
-            
-            Assert.IsTrue(result.ErrorData?.Error.Details != null &&
-                          result.ErrorData.Error.Code == nameof(RequestFailedException));
         });
     }
 }

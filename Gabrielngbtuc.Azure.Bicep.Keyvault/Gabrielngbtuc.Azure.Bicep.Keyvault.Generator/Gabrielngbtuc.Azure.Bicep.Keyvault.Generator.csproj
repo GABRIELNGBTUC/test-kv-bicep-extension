@@ -10,6 +10,7 @@
 
     <ItemGroup>
         <PackageReference Include="Azure.Bicep.Types" Version="0.5.110"/>
+        <PackageReference Include="System.Text.Json" Version="9.0.6" />
     </ItemGroup>
 
     <ItemGroup>

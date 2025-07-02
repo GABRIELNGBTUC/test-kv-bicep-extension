@@ -10,13 +10,13 @@
       "$ref": "types.json#/146"
     },
     "CertificateIssuer": {
-      "$ref": "types.json#/166"
+      "$ref": "types.json#/173"
     },
     "CertificatePolicy": {
-      "$ref": "types.json#/195"
+      "$ref": "types.json#/202"
     },
     "Configuration": {
-      "$ref": "types.json#/202"
+      "$ref": "types.json#/209"
     }
   },
   "resourceFunctions": {},

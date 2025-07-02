@@ -4,6 +4,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Text.Json.Serialization;
 using Azure.Bicep.Types;
 using Azure.Bicep.Types.Concrete;
 using Azure.Bicep.Types.Index;
@@ -154,25 +155,69 @@ public static class TypeGenerator
         }
 
         var typeProperties = new Dictionary<string, ObjectTypeProperty>();
-        //Handle discriminator
-        if (ignoreDiscriminatorAttribute == false && type.GetCustomAttribute<BicepDiscriminatorType>() is
+        //Updated discriminator handling
+        if (ignoreDiscriminatorAttribute == false &&
+            type.GetCustomAttribute<JsonPolymorphicAttribute>() is { } polymorphicAttribute
+            && type.GetCustomAttributes<JsonDerivedTypeAttribute>() is { } derivedTypesAttribute
+            && type.GetCustomAttribute<BicepDiscriminatorType>() is
                 { } discriminatorTypeAttribute)
         {
             var baseProperties = (ObjectType)GenerateForRecord(factory, typeCache, type, true);
             var childTypesDictionary = new Dictionary<string, ITypeReference>();
-            foreach (var kvp in discriminatorTypeAttribute.DiscriminatorTypes)
+            var unionType = typeCache.GetOrAdd(discriminatorTypeAttribute.DiscriminatorType, _ => factory.GetReferenceFromType(new UnionType(derivedTypesAttribute.Select(
+                dt => factory.GetReferenceFromType(new StringLiteralType(dt.TypeDiscriminator.ToString()))
+                ).ToList()
+            )).Type);
+            foreach (var derivedType in derivedTypesAttribute)
             {
-                var discriminatedTypeProperties = typeCache.GetOrAdd(kvp.Value, _ => (ObjectType)GenerateForRecord(factory, typeCache, kvp.Value, true));
-                childTypesDictionary.Add(kvp.Key, factory.GetReferenceFromType(discriminatedTypeProperties));
+                var discriminatedTypeProperties = typeCache.GetOrAdd(derivedType.DerivedType, _ => (ObjectType)GenerateForRecord(factory, typeCache, derivedType.DerivedType, true));
+                var t = (ObjectType)discriminatedTypeProperties;
+                var newProps =
+                    new Dictionary<string, ObjectTypeProperty>()
+                    {
+                        {
+                            polymorphicAttribute.TypeDiscriminatorPropertyName!,
+                            new ObjectTypeProperty(factory.GetReferenceFromType(new StringLiteralType(derivedType.TypeDiscriminator.ToString())), ObjectTypePropertyFlags.Required, "The discriminator for derived types.")
+                        }
+                    }
+                ;
+                foreach (var kvp in t.Properties)
+                {
+                    newProps.Add(kvp.Key, kvp.Value);
+                }
+                var newObjectType = new ObjectType(t.Name, 
+                    newProps.Union(t.Properties.ToDictionary(kvp => kvp.Key, kvp => kvp.Value))
+                        .ToImmutableDictionary()
+                    , t.AdditionalProperties);
+                childTypesDictionary.Add(derivedType.DerivedType.Name, factory.GetReferenceFromType(newObjectType));
             }
 
             var typeReference = typeCache.GetOrAdd(type, _ => factory.GetReferenceFromType(new DiscriminatedObjectType(
-                discriminatorTypeAttribute.DiscrminatorTypeName,
-                discriminatorTypeAttribute.DiscriminatorPropertyName, baseProperties.Properties
+                type.Name,
+                polymorphicAttribute.TypeDiscriminatorPropertyName!, baseProperties.Properties
                 , childTypesDictionary)).Type);
 
             return typeReference;
         }
+        //Handle discriminator
+        // if (ignoreDiscriminatorAttribute == false && type.GetCustomAttribute<BicepDiscriminatorType>() is
+        //         { } discriminatorTypeAttribute)
+        // {
+        //     var baseProperties = (ObjectType)GenerateForRecord(factory, typeCache, type, true);
+        //     var childTypesDictionary = new Dictionary<string, ITypeReference>();
+        //     foreach (var kvp in discriminatorTypeAttribute.DiscriminatorTypes)
+        //     {
+        //         var discriminatedTypeProperties = typeCache.GetOrAdd(kvp.Value, _ => (ObjectType)GenerateForRecord(factory, typeCache, kvp.Value, true));
+        //         childTypesDictionary.Add(kvp.Key, factory.GetReferenceFromType(discriminatedTypeProperties));
+        //     }
+        //
+        //     var typeReference = typeCache.GetOrAdd(type, _ => factory.GetReferenceFromType(new DiscriminatedObjectType(
+        //         discriminatorTypeAttribute.DiscrminatorTypeName,
+        //         discriminatorTypeAttribute.DiscriminatorPropertyName, baseProperties.Properties
+        //         , childTypesDictionary)).Type);
+        //
+        //     return typeReference;
+        // }
         //Handle dictionaries
         else if (type.IsGenericType && type.GetGenericTypeDefinition() == typeof(Dictionary<,>))
         {

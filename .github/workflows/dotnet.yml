@@ -30,22 +30,22 @@ jobs:
     - name: Install SSL Certificates and Test
       run: |
         dotnet dev-certs https --trust
-        echo Creating .crt and .pfx to be used in emulator container
-
-        cd '/tmp/'
-
-        mkdir 'kvemulator'
-
-        cd 'kvemulator'
-        
-        dotnet dev-certs https -ep ./emulator.crt  -q
-        
-        echo Created emulator.crt with password emulator
-        
-        dotnet dev-certs https -ep ./emulator.pfx  -q
-        
-        echo Created emulator.pfx with password emulator. You must now install these certificates locally as a Trusted Root CA Authority.
-        sudo cp emulator.crt /usr/local/share/ca-certificates/emulator.crt 
-        sudo update-ca-certificates
+#        echo Creating .crt and .pfx to be used in emulator container
+#
+#        cd '/tmp/'
+#
+#        mkdir 'kvemulator'
+#
+#        cd 'kvemulator'
+#        
+#        dotnet dev-certs https -ep ./emulator.crt  -q
+#        
+#        echo Created emulator.crt with password emulator
+#        
+#        dotnet dev-certs https -ep ./emulator.pfx  -q
+#        
+#        echo Created emulator.pfx with password emulator. You must now install these certificates locally as a Trusted Root CA Authority.
+#        sudo cp emulator.crt /usr/local/share/ca-certificates/emulator.crt 
+#        sudo update-ca-certificates
     - name: TestAdd commentMore actions
       run: sudo dotnet test --no-build --verbosity normal

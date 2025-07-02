@@ -13,9 +13,9 @@ public record CertificateIssuer(
     CertificateIssuerCredential Provider
     );
 
+public record CertificateIssuerDiscriminator();
 
-[BicepDiscriminatorType(nameof(CertificateIssuerCredential), "provider", 
-    typeof(DigicertCredentials), typeof(GlobalSignCredentials)),
+[BicepDiscriminatorType(typeof(CertificateIssuerDiscriminator)),
  JsonPolymorphic(TypeDiscriminatorPropertyName = "provider"),
 JsonDerivedType(typeof(DigicertCredentials), "DigiCert"),
 JsonDerivedType(typeof(GlobalSignCredentials), "GlobalSign"),
@@ -31,10 +31,6 @@ public record CertificateIssuerCredential(
     string ProviderName);
 
 public record DigicertCredentials(
-    [property: TypeAnnotation("The provider of the certificate",  ObjectTypePropertyFlags.Required),
-    BicepStringLiteralValue("DigiCert"),
-    JsonConverter(typeof(BicepEnumConverter<CertificateIssuerProvider>))]
-    CertificateIssuerProvider Provider,
     [property: TypeAnnotation("The organization ID", ObjectTypePropertyFlags.Required),
         BicepNonNullableString]
     string OrganizationId,
@@ -43,10 +39,6 @@ public record DigicertCredentials(
     ) : CertificateIssuerCredential(AccountId, Password, nameof(CertificateIssuerProvider.DigiCert));
 
 public record GlobalSignCredentials(
-    [property: TypeAnnotation("The provider of the certificate",  ObjectTypePropertyFlags.Required),
-               BicepStringLiteralValue("GlobalSign"),
-               JsonConverter(typeof(BicepEnumConverter<CertificateIssuerProvider>))]
-    CertificateIssuerProvider Provider,
     [property: TypeAnnotation("The first name of the administrator", ObjectTypePropertyFlags.Required),
                BicepNonNullableString]
     string FirstName,
@@ -64,10 +56,6 @@ public record GlobalSignCredentials(
     ) : CertificateIssuerCredential(AccountId, Password, nameof(CertificateIssuerProvider.GlobalSign));
 
 public record UnknownCredentials(
-    [property: TypeAnnotation("The provider of the certificate", ObjectTypePropertyFlags.Identifier | ObjectTypePropertyFlags.Required),
-                                            BicepStringLiteralValue("Unknown"),
-                                            JsonConverter(typeof(BicepEnumConverter<CertificateIssuerProvider>))]
-    CertificateIssuerProvider Provider,
     [property: TypeAnnotation("The name of the issuer as found in the keyvault", ObjectTypePropertyFlags.ReadOnly),]
     string ProviderNameFound
 ) : CertificateIssuerCredential("Unknown", "Unknown", ProviderNameFound);

@@ -12,7 +12,7 @@ public class CertificateIssuerHandler : IResourceHandler
 {
     public string ResourceType => nameof(CertificateIssuer);
 
-    private record Identifiers(
+    public record Identifiers(
         string? Name);
 
     public Task<LocalExtensionOperationResponse> CreateOrUpdate(ResourceSpecification request,
@@ -114,19 +114,19 @@ public class CertificateIssuerHandler : IResourceHandler
     {
         if (issuer.Provider == "DigiCert")
         {
-            return new DigicertCredentials(CertificateIssuerProvider.DigiCert,
+            return new DigicertCredentials(
                 issuer.OrganizationId, issuer.AccountId, null);
         }
         else if (issuer.Provider == "GlobalSign")
         {
             var administratorInfo = issuer.AdministratorContacts.FirstOrDefault();
-            return new GlobalSignCredentials(CertificateIssuerProvider.GlobalSign,
+            return new GlobalSignCredentials(
                 administratorInfo?.FirstName, administratorInfo?.LastName, administratorInfo?.Email,
                 administratorInfo?.Phone, issuer.AccountId, null);
         }
         else
         {
-            return new UnknownCredentials(CertificateIssuerProvider.Unknown, issuer.Provider);
+            return new UnknownCredentials(issuer.Provider);
         }
     }
     

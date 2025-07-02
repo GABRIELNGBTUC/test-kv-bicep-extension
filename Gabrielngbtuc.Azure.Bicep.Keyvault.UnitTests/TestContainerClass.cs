@@ -23,10 +23,6 @@ public class TestContainerClass
         {
             await function.Invoke(default);
         }
-        catch
-        {
-            throw;
-        }
         finally
         {
             await container.StopAsync();

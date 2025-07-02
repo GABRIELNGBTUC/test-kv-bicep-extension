@@ -106,27 +106,10 @@ public class BicepSerializableType : Attribute;
 [ExcludeFromCodeCoverage]
 public class BicepDiscriminatorType : Attribute
 {
-    /// <summary>
-    /// The name of the bicep type that will be generated. Recommended to use nameof(T).
-    /// </summary>
-    public string DiscrminatorTypeName { get; }
-
-    /// <summary>
-    /// The list of types that will be part of the union. All of these types should include a property with the name specified by DiscriminatorPropertyName and implementing the attribute TypeAnnotationAttribute
-    /// </summary>
-    public Dictionary<string, Type> DiscriminatorTypes { get; }
-
-    /// <summary>
-    /// The name of the property shared by the discriminated types. Should use pascalCase.
-    /// </summary>
-    public string DiscriminatorPropertyName { get; }
-
-    public BicepDiscriminatorType(string discrminatorTypeName, string discriminatorPropertyName,
-        params Type[] discriminatorTypes)
+    public Type DiscriminatorType { get; }
+    public BicepDiscriminatorType(Type discrminatorType)
     {
-        DiscrminatorTypeName = discrminatorTypeName;
-        DiscriminatorTypes = discriminatorTypes.ToDictionary(t => t.Name, t => t);
-        DiscriminatorPropertyName = discriminatorPropertyName;
+        DiscriminatorType = discrminatorType;
     }
 }
 

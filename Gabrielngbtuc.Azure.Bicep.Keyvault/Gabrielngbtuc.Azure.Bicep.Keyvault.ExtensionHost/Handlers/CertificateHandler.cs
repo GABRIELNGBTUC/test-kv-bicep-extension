@@ -194,7 +194,7 @@ public class CertificateHandler : IResourceHandler
             KeySize: policy.KeySize.Value, 
             ReuseKey: policy.ReuseKey.Value, 
             EnhancedKeyUsages: policy.EnhancedKeyUsage.ToArray(), 
-            KeyCurveName: policy.KeyCurveName.Value.ToString(), 
+            KeyCurveName: policy.KeyCurveName?.ToString(), 
             ValidityInMonths: policy.ValidityInMonths.Value, 
             Enabled: policy.Enabled, 
             SubjectAlternativeNames: policy.SubjectAlternativeNames is null
